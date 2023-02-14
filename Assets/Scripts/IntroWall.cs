@@ -37,6 +37,10 @@ public class IntroWall : MonoBehaviour
                 introWallParent.SetActive(false);
             }
         }
+        else if (OVRInput.GetDown(OVRInput.Button.Two)) // turn off intro wall when press B
+        {
+            introWallParent.SetActive(false);
+        }
     }
 
     void UpdateTextWall()
