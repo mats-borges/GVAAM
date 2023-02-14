@@ -14,21 +14,21 @@ public class ControlPanel : MonoBehaviour
     [SerializeField] private GameObject pagesideTextManager;
     private TextMeshPro langNameText;
     public int CurLangNum = 0;
-    
-    [SerializeField]  private UnityEvent onMusicPress;
+
+    [SerializeField] private UnityEvent onMusicPress;
     [SerializeField] private GameObject musicObject;
     [SerializeField] private GameObject musicOnOffText;
     private bool musicHasBeenTurnedOff;
-    
+
     [SerializeField] private GameObject AnnotationOnOffText;
     [SerializeField] private GameObject highlightFolder;
     private bool AnnotationHasBeenTurnedOff;
-    
+
     [SerializeField] private GameObject InspectorOnOffText;
     private bool inspectorIsOn = true;
     [SerializeField] private GameObject inspectorPeripheries;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,14 +38,19 @@ public class ControlPanel : MonoBehaviour
         {
             langList.Add(langAssetList[i].name);
         }
-        
+
         langNameText = langNameTextObject.GetComponent<TextMeshPro>();
         langNameText.text = langList[CurLangNum];
 
         musicHasBeenTurnedOff = false;
-        AnnotationHasBeenTurnedOff = false;
+
+        // default off for annotations
+        AnnotationOnOffText.GetComponent<TextMeshPro>().text = "OFF"; // default off
+        highlightFolder.SetActive(false);
+        AnnotationHasBeenTurnedOff = true;
+
     }
-    
+
 
     public void CycleLanguageName()
     {
@@ -56,7 +61,7 @@ public class ControlPanel : MonoBehaviour
         }
         langNameText.text = langList[CurLangNum];
     }
-    
+
     public void CycleLanguageNameBackwards()
     {
         CurLangNum--;
@@ -66,7 +71,7 @@ public class ControlPanel : MonoBehaviour
         }
         langNameText.text = langList[CurLangNum];
     }
-    
+
 
     public void UpdateMusicOnOff()
     {
@@ -83,7 +88,7 @@ public class ControlPanel : MonoBehaviour
             musicHasBeenTurnedOff = false;
         }
     }
-    
+
     public void UpdateAnnotationsOnOff()
     {
         if (AnnotationHasBeenTurnedOff == false)
@@ -99,7 +104,7 @@ public class ControlPanel : MonoBehaviour
             AnnotationHasBeenTurnedOff = false;
         }
     }
-    
+
     public void UpdateInspectorOnOff()
     {
         inspectorIsOn = !inspectorIsOn;
@@ -114,7 +119,7 @@ public class ControlPanel : MonoBehaviour
             inspectorPeripheries.SetActive(true);
 
         }
-        
+
     }
 
     public void ResetExperienceCP()
@@ -122,19 +127,19 @@ public class ControlPanel : MonoBehaviour
         //translation
         CurLangNum = 0;
         langNameText.text = langList[CurLangNum];
-        
+
         //music
         musicOnOffText.GetComponent<TextMeshPro>().text = "ON";
         musicObject.GetComponent<AudioSource>().Play();
         musicHasBeenTurnedOff = false;
-        
+
         //page
         //done in book manager
-        
+
         //annotation
-        AnnotationOnOffText.GetComponent<TextMeshPro>().text = "ON";
-        highlightFolder.SetActive(true);
-        AnnotationHasBeenTurnedOff = false;
+        AnnotationOnOffText.GetComponent<TextMeshPro>().text = "OFF"; // default off
+        highlightFolder.SetActive(false);
+        AnnotationHasBeenTurnedOff = true;
     }
-    
+
 }
