@@ -73,9 +73,10 @@ public class BookManager : MonoBehaviour
             Increment(versoInspectorPage,  ref versoInspectorPageNum);
             Increment(rectoInspectorPage,  ref rectoInspectorPageNum);
         }
-        
+
         //increment the control panel's page number display
-        folioMenuText.GetComponent<MenuText>().IncrementState();
+        //folioMenuText.GetComponent<MenuText>().IncrementState();
+        folioMenuText.GetComponent<MenuText>().updateState();
     }
 
     public void decrementAll()

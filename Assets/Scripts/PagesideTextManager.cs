@@ -49,7 +49,7 @@ public class PagesideTextManager : MonoBehaviour
     public void IncrementLangNum()
     {
         langNum++;
-        if (langNum > LanguageFileList.Count-1)
+        if (langNum >= LanguageFileList.Count-1)
         {
             langNum = 0;
         }

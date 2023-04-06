@@ -11,6 +11,7 @@ public class MenuText : MonoBehaviour
     
     //takes in list of names from inspector
     [SerializeField] private List<string> stateList = new List<string>();
+    private BookManager bookManager; 
     private int stateNum = 0;
 
     private void Start()
@@ -19,6 +20,7 @@ public class MenuText : MonoBehaviour
         {
             GetComponent<TextMeshPro>().text = stateList[0];
         }
+        bookManager = GameObject.Find("Book Manager").GetComponent<BookManager>();
     }
 
     public void IncrementState()
@@ -37,6 +39,25 @@ public class MenuText : MonoBehaviour
         if (stateNum < 0)
         {
             stateNum = stateList.Count-1;
+        }
+        GetComponent<TextMeshPro>().text = stateList[stateNum];
+    }
+
+    public void updateState() // increment and decrement don't always line up, so instead, we will directly take the page number from the bookManager itself
+    {
+        int currLeft = bookManager.leftPageNum;
+
+        if (currLeft == 0) // r = 2
+        {
+            stateNum = 0; 
+        }
+        else if (currLeft == 1) // r = 0
+        {
+            stateNum = 1;
+        }
+        else if (currLeft == 2) // r = 1 
+        {
+            stateNum = 2; 
         }
         GetComponent<TextMeshPro>().text = stateList[stateNum];
     }
