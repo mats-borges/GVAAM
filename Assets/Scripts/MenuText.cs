@@ -11,18 +11,32 @@ public class MenuText : MonoBehaviour
     
     //takes in list of names from inspector
     [SerializeField] private List<string> stateList = new List<string>();
-    private BookManager bookManager; 
+    private PagesideTextManager pagesideTextManager; 
     private int stateNum = 0;
 
     private void Start()
     {
-        if (stateList.Count > 0)
+        if (stateList.Count >= 0)
         {
-            GetComponent<TextMeshPro>().text = stateList[0];
+            GetComponent<TextMeshPro>().text = stateList[0]; // always start at the first page
         }
-        bookManager = GameObject.Find("Book Manager").GetComponent<BookManager>();
+        pagesideTextManager = GameObject.Find("Pageside Text Manager").GetComponent<PagesideTextManager>();
     }
 
+    // update based on code in PagesideTextManager that recognizes if the page has been turned
+    public void updateState() 
+    {
+        stateNum = pagesideTextManager.getPageNum()/2; // get the left page number
+        GetComponent<TextMeshPro>().text = stateList[stateNum];
+    }
+
+    public void ResetExperienceMT()
+    {
+        stateNum = 0;
+        GetComponent<TextMeshPro>().text = stateList[stateNum];
+    }
+
+    /* old code
     public void IncrementState()
     {
         stateNum++;
@@ -32,39 +46,16 @@ public class MenuText : MonoBehaviour
         }
         GetComponent<TextMeshPro>().text = stateList[stateNum];
     }
+
     
     public void DecrementState()
     {
         stateNum--;
         if (stateNum < 0)
         {
-            stateNum = stateList.Count-1;
+            stateNum = stateList.Count - 1;
         }
         GetComponent<TextMeshPro>().text = stateList[stateNum];
     }
-
-    public void updateState() // increment and decrement don't always line up, so instead, we will directly take the page number from the bookManager itself
-    {
-        int currLeft = bookManager.leftPageNum;
-
-        if (currLeft == 0) // r = 2
-        {
-            stateNum = 0; 
-        }
-        else if (currLeft == 1) // r = 0
-        {
-            stateNum = 1;
-        }
-        else if (currLeft == 2) // r = 1 
-        {
-            stateNum = 2; 
-        }
-        GetComponent<TextMeshPro>().text = stateList[stateNum];
-    }
-
-    public void ResetExperienceMT()
-    {
-        stateNum = 0;
-        GetComponent<TextMeshPro>().text = stateList[stateNum];
-    }
+    */ 
 }

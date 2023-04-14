@@ -6,10 +6,13 @@ using UnityEngine;
 
 public class BookManager : MonoBehaviour
 {
-    //leftpagenum is used by pagesideTextManager
-    public int leftPageNum = 0;
+
+    // functions for updating the pages shown in the book and the corresponding pages of the inspector
+
+    //leftpagenum is used by pagesideTextManager for the default page
+    public int leftPageNum = 0; // change this to private later
     int simPageNum = 1;
-    public int rightPageNum = 2;
+    public int rightPageNum = 2; // was 2
     int versoInspectorPageNum = 0;
     int rectoInspectorPageNum = 1;
     public bool pairedMode = true;
@@ -21,10 +24,15 @@ public class BookManager : MonoBehaviour
     [SerializeField] GameObject versoInspectorPage;
     [SerializeField] GameObject rectoInspectorPage;
     [SerializeField] private GameObject bookSystemObject;
-    private GameObject folioMenuText;
 
-    [SerializeField] List<Material> pageList = new List<Material>(); 
+    [SerializeField] List<Material> pageList = new List<Material>(); // stores the page materials 
 
+    public int getLeftPageNum()
+    {
+        return leftPageNum;
+    }
+
+    // Sets defaults 
     private void Start()
     {
         rightPage.GetComponent<Renderer>().material = pageList[rightPageNum];
@@ -32,7 +40,7 @@ public class BookManager : MonoBehaviour
         simPage.GetComponent<Renderer>().material = pageList[simPageNum];
         versoInspectorPage.GetComponent<Renderer>().material = pageList[versoInspectorPageNum];
         rectoInspectorPage.GetComponent<Renderer>().material = pageList[rectoInspectorPageNum];
-        folioMenuText = GameObject.Find("Advance Page Name Text");
+        //folioMenuText = GameObject.Find("Advance Page Name Text");
     }
 
     public void Increment(GameObject page,ref int pgn)
@@ -41,12 +49,8 @@ public class BookManager : MonoBehaviour
         if(pgn>=pageList.Count)
         {
             pgn = 0;
-            page.GetComponent<Renderer>().material = pageList[pgn];
         }
-        else
-        {
-            page.GetComponent<Renderer>().material = pageList[pgn];
-        }
+        page.GetComponent<Renderer>().material = pageList[pgn];
     }
 
     public void Decrement(GameObject page,ref int pgn)
@@ -55,12 +59,8 @@ public class BookManager : MonoBehaviour
         if ( pgn < 0)
         {
             pgn = pageList.Count-1;
-            page.GetComponent<Renderer>().material = pageList[pgn];
         }
-        else
-        {
-            page.GetComponent<Renderer>().material = pageList[pgn];
-        }
+        page.GetComponent<Renderer>().material = pageList[pgn];
     }
 
     public void IncrementAll()
@@ -74,9 +74,6 @@ public class BookManager : MonoBehaviour
             Increment(rectoInspectorPage,  ref rectoInspectorPageNum);
         }
 
-        //increment the control panel's page number display
-        //folioMenuText.GetComponent<MenuText>().IncrementState();
-        folioMenuText.GetComponent<MenuText>().updateState();
     }
 
     public void decrementAll()
@@ -89,9 +86,7 @@ public class BookManager : MonoBehaviour
             Decrement(versoInspectorPage,  ref versoInspectorPageNum);
             Decrement(rectoInspectorPage,  ref rectoInspectorPageNum);
         }
-        
-        //decrement the control panel's page number display
-        folioMenuText.GetComponent<MenuText>().DecrementState();
+
     }
 
     //increments only the inspector
@@ -132,7 +127,7 @@ public class BookManager : MonoBehaviour
     {
         leftPageNum = 0;
         simPageNum = 1;
-        rightPageNum = 2;
+        rightPageNum = 2; 
         versoInspectorPageNum = 0;
         rectoInspectorPageNum = 1;
         leftPage.GetComponent<Renderer>().material = pageList[leftPageNum];

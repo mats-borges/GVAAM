@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class ControlPanel : MonoBehaviour
 {
+
+    // updates the text displayed and behaviors relating to the control panel
+
     private string languageName;
     private List<string> langList = new List<string>();
 
@@ -51,7 +54,7 @@ public class ControlPanel : MonoBehaviour
 
     }
 
-
+    // cycle page name 
     public void CycleLanguageName()
     {
         CurLangNum++;
@@ -65,14 +68,14 @@ public class ControlPanel : MonoBehaviour
     public void CycleLanguageNameBackwards()
     {
         CurLangNum--;
-        if (CurLangNum <= langList.Count)
+        if (CurLangNum < 0) 
         {
-            CurLangNum = langList.Count;
+            CurLangNum = langList.Count-1; 
         }
         langNameText.text = langList[CurLangNum];
     }
 
-
+    // update music
     public void UpdateMusicOnOff()
     {
         if (musicHasBeenTurnedOff == false)
@@ -89,6 +92,7 @@ public class ControlPanel : MonoBehaviour
         }
     }
 
+    // update annotations
     public void UpdateAnnotationsOnOff()
     {
         if (AnnotationHasBeenTurnedOff == false)
@@ -105,6 +109,8 @@ public class ControlPanel : MonoBehaviour
         }
     }
 
+
+    // update insepector, the magnifying glass
     public void UpdateInspectorOnOff()
     {
         inspectorIsOn = !inspectorIsOn;
