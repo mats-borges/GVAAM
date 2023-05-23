@@ -1,0 +1,83 @@
+Using pre-set license
+
+ COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/jessicafu/Desktop/GVAAM
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+52437
+Successfully changed project path to: /Users/jessicafu/Desktop/GVAAM
+/Users/jessicafu/Desktop/GVAAM
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 87.95 ms, found 8 plugins.
+Preloading 1 native plugins for Editor in 12.76 ms.
+Initialize engine version: 2020.3.1f1 (77a89f25062f)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/jessicafu/Desktop/GVAAM/Assets
+GfxDevice: creating device client; threaded=0
+2023-05-23 16:48:28.853 Unity[17458:552426] (null) preferred device: Apple M2 (high power)
+2023-05-23 16:48:28.853 Unity[17458:552426] Metal devices available: 1
+2023-05-23 16:48:28.853 Unity[17458:552426] 0: Apple M2 (high power)
+2023-05-23 16:48:28.855 Unity[17458:552426] Using device Apple M2 (high power)
+Initializing Metal device caps: Apple M2
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56458
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.000789 seconds.
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 70.06 ms, found 8 plugins.
+Preloading 1 native plugins for Editor in 0.22 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.949 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.003107 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 77.81 ms, found 8 plugins.
+Preloading 1 native plugins for Editor in 0.30 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.125 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launching external process: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Refreshing native plugins compatible for Editor in 1.09 ms, found 8 plugins.
+Preloading 1 native plugins for Editor in 0.27 ms.
+Unloading 4314 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 295.8 MB.
+System memory in use after: 295.7 MB.
+
+Unloading 61 unused Assets to reduce memory usage. Loaded Objects now: 4720.
+Total: 2.672875 ms (FindLiveObjects: 0.364416 ms CreateObjectMapping: 0.085417 ms MarkObjects: 1.939958 ms  DeleteObjects: 0.282333 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Text Files/BoH/LATIN.txt
+  artifactKey: Guid(ffcff5b048f77e0419317b1d8505ff45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Text Files/BoH/LATIN.txt using Guid(ffcff5b048f77e0419317b1d8505ff45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '418cb0b093eb32b450fb424aa925f544') in 0.977868 seconds
+  Import took 0.984069 seconds .
+
