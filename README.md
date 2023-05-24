@@ -24,6 +24,7 @@ Abriannah Aiken, USC Architecture<br/>
 Elena Prado, USC Archaeology<br/>
 Lauren Malkoun, USC Archaeology<br/>
 Jose Botello-Herrera, USC Archaeology<br/>
+Jessica Fu, USC Viterbi<br/>
 
 **NEH Project Participants:** <br/>
 Adam Knight Gilbert, USC Thornton<br/>
