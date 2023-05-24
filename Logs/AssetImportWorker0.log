@@ -81,3 +81,11 @@ Received Import Request.
 Start importing Assets/Text Files/BoH/LATIN.txt using Guid(ffcff5b048f77e0419317b1d8505ff45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '418cb0b093eb32b450fb424aa925f544') in 0.977868 seconds
   Import took 0.984069 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 1526.427996 seconds.
+  path: Assets/Text Files/BoH/LATIN.txt
+  artifactKey: Guid(ffcff5b048f77e0419317b1d8505ff45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Text Files/BoH/LATIN.txt using Guid(ffcff5b048f77e0419317b1d8505ff45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '771bbbdda4ddc3104717e04a9593c221') in 0.008751 seconds
+  Import took 0.078930 seconds .
+
