@@ -5,41 +5,78 @@ using UnityEngine;
 
 public class MaterialSwitcher : MonoBehaviour
 {
-    private Material originalMat;
-    [SerializeField] private Material highlightMaterial;
-    [SerializeField] private Material clickedMaterial;
-    private MeshRenderer _meshRenderer;
-    
+    protected Material originalMat;
+    [SerializeField] protected Material highlightMaterial;
+    [SerializeField] protected Material clickedMaterial;
+    protected MeshRenderer meshRenderer;
+    private bool isOn = false; // for modes 
+
     private void Awake()
     {
-        _meshRenderer = GetComponent<MeshRenderer>();
-        originalMat = _meshRenderer.material;
+        isOn = false;
+        meshRenderer = GetComponent<MeshRenderer>();
+        originalMat = meshRenderer.material;
     }
 
     public void TurnOnHighlight(Color highlightColor)
     {
-        
-        _meshRenderer.material = highlightMaterial;
-        _meshRenderer.material.SetColor("_BaseColor", highlightColor);
+        if (!isOn)
+        {
+            meshRenderer.material = highlightMaterial;
+            meshRenderer.material.SetColor("_BaseColor", highlightColor);
+        }
     }
     
     public void TurnOnHighlight()
     {
-        _meshRenderer.material = highlightMaterial;
+        meshRenderer.material = highlightMaterial;
     }
 
     public void TurnOffHighlight()
     {
-        _meshRenderer.material = originalMat;
+        if (!isOn)
+        {
+            meshRenderer.material = originalMat;
+        }
+        else
+        {
+            meshRenderer.material = clickedMaterial;
+        }
     }
 
     public void TurnOnClickedMaterial()
     {
-        _meshRenderer.material = clickedMaterial;
+        if (!isOn)
+        { 
+            meshRenderer.material = clickedMaterial;
+        }
     }
     
     public void TurnOffClickedMaterial()
     {
-        _meshRenderer.material = highlightMaterial;
+        if (!isOn)
+        { 
+            meshRenderer.material = highlightMaterial;
+        }
+    }
+
+    public void ToggleClick()
+    {
+        if (isOn) // turn off 
+        {
+            meshRenderer.material = highlightMaterial;
+            isOn = false;
+        }
+        else // turn on 
+        {
+            meshRenderer.material = clickedMaterial;
+            isOn = true;
+        }
+    }
+
+    public void ResetMode()
+    {
+        isOn = false;
+        meshRenderer.material = originalMat;
     }
 }

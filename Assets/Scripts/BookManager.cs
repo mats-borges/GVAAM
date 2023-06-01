@@ -25,7 +25,10 @@ public class BookManager : MonoBehaviour
     [SerializeField] GameObject rectoInspectorPage;
     [SerializeField] private GameObject bookSystemObject;
 
-    [SerializeField] List<Material> pageList = new List<Material>(); // stores the page materials 
+    [SerializeField] List<Material> pageList = new List<Material>(); // stores the page materials
+    [SerializeField] List<Material> restoredList = new List<Material>(); // stores the restored pages
+    private List<Material> currList; // used to refernce pageList or restoredList
+    private bool restoreMode = false; 
 
     public int getLeftPageNum()
     {
@@ -35,22 +38,44 @@ public class BookManager : MonoBehaviour
     // Sets defaults 
     private void Start()
     {
-        rightPage.GetComponent<Renderer>().material = pageList[rightPageNum];
-        leftPage.GetComponent<Renderer>().material = pageList[leftPageNum];
-        simPage.GetComponent<Renderer>().material = pageList[simPageNum];
-        versoInspectorPage.GetComponent<Renderer>().material = pageList[versoInspectorPageNum];
-        rectoInspectorPage.GetComponent<Renderer>().material = pageList[rectoInspectorPageNum];
+        currList = pageList;
+        restoreMode = false;
+        rightPage.GetComponent<Renderer>().material = currList[rightPageNum];
+        leftPage.GetComponent<Renderer>().material = currList[leftPageNum];
+        simPage.GetComponent<Renderer>().material = currList[simPageNum];
+        versoInspectorPage.GetComponent<Renderer>().material = currList[versoInspectorPageNum];
+        rectoInspectorPage.GetComponent<Renderer>().material = currList[rectoInspectorPageNum];
         //folioMenuText = GameObject.Find("Advance Page Name Text");
+    }
+
+    public void ToggleRestore()
+    {
+        if (restoreMode) // turn off restored 
+        {
+            currList = pageList;
+            restoreMode = false; 
+        }
+        else // turn on restored 
+        {
+            currList = restoredList;
+            restoreMode = true; 
+        }
+        // update all renders
+        rightPage.GetComponent<Renderer>().material = currList[rightPageNum];
+        leftPage.GetComponent<Renderer>().material = currList[leftPageNum];
+        simPage.GetComponent<Renderer>().material = currList[simPageNum];
+        versoInspectorPage.GetComponent<Renderer>().material = currList[versoInspectorPageNum];
+        rectoInspectorPage.GetComponent<Renderer>().material = currList[rectoInspectorPageNum];
     }
 
     public void Increment(GameObject page,ref int pgn)
     {
         pgn++;
-        if(pgn>=pageList.Count)
+        if(pgn>= currList.Count)
         {
             pgn = 0;
         }
-        page.GetComponent<Renderer>().material = pageList[pgn];
+        page.GetComponent<Renderer>().material = currList[pgn];
     }
 
     public void Decrement(GameObject page,ref int pgn)
@@ -58,9 +83,9 @@ public class BookManager : MonoBehaviour
         pgn--;
         if ( pgn < 0)
         {
-            pgn = pageList.Count-1;
+            pgn = currList.Count-1;
         }
-        page.GetComponent<Renderer>().material = pageList[pgn];
+        page.GetComponent<Renderer>().material = currList[pgn];
     }
 
     public void IncrementAll()
@@ -110,8 +135,8 @@ public class BookManager : MonoBehaviour
         {
             versoInspectorPageNum = leftPageNum;
             rectoInspectorPageNum = simPageNum;
-            versoInspectorPage.GetComponent<Renderer>().material = pageList[versoInspectorPageNum];
-            rectoInspectorPage.GetComponent<Renderer>().material = pageList[rectoInspectorPageNum];
+            versoInspectorPage.GetComponent<Renderer>().material = currList[versoInspectorPageNum];
+            rectoInspectorPage.GetComponent<Renderer>().material = currList[rectoInspectorPageNum];
         }
         pairedMode = !pairedMode;
     }
@@ -125,16 +150,18 @@ public class BookManager : MonoBehaviour
 
     public void ResetExperienceBM()
     {
+        currList = pageList;
+        restoreMode = false;
         leftPageNum = 0;
         simPageNum = 1;
         rightPageNum = 2; 
         versoInspectorPageNum = 0;
         rectoInspectorPageNum = 1;
-        leftPage.GetComponent<Renderer>().material = pageList[leftPageNum];
-        simPage.GetComponent<Renderer>().material = pageList[simPageNum];
-        rightPage.GetComponent<Renderer>().material = pageList[rightPageNum];
-        versoInspectorPage.GetComponent<Renderer>().material = pageList[versoInspectorPageNum];
-        rectoInspectorPage.GetComponent<Renderer>().material = pageList[rectoInspectorPageNum];
+        leftPage.GetComponent<Renderer>().material = currList[leftPageNum];
+        simPage.GetComponent<Renderer>().material = currList[simPageNum];
+        rightPage.GetComponent<Renderer>().material = currList[rightPageNum];
+        versoInspectorPage.GetComponent<Renderer>().material = currList[versoInspectorPageNum];
+        rectoInspectorPage.GetComponent<Renderer>().material = currList[rectoInspectorPageNum];
 
         ResetPageParticles(null);
         bookSystemObject.GetComponent<ParticlePositionManager>().LoadParticles("RightSideResting");
