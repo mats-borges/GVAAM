@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Interactor
   - Grabber
+  - Badge 3 R
+  - Badge 1 W
+  - Badge 2 W
   layers:
   - Default
   - TransparentFX
