@@ -7,17 +7,17 @@ using UnityEngine.Events;
 public class UnturnableCollider : MonoBehaviour
 {
     //controls the page turning "magic trick" 
-    
+
     //check if player is trying to grab
     //check if grabber is on the side closer to the hand
     //invoke the magic trick unity events in the inspector
-    
+
     public GraspingPoint.SimPageSide colliderSide = GraspingPoint.SimPageSide.RightSide;
 
     //InteractibleEvent is defined in Interactible.cs
     [SerializeField] private InteractibleEvent pageMagic;
     [SerializeField] private GraspingPoint _graspingPoint;
-    private bool isStart = true; 
+    private bool isStart = true;
 
     // if the grasping point is on the same side as the collider, do nothing
     // if the collider is not on the same side, it invokes the interactor
