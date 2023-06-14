@@ -17,7 +17,11 @@ public class UnturnableCollider : MonoBehaviour
     //InteractibleEvent is defined in Interactible.cs
     [SerializeField] private InteractibleEvent pageMagic;
     [SerializeField] private GraspingPoint _graspingPoint;
-    
+    private bool isStart = true; 
+
+    // if the grasping point is on the same side as the collider, do nothing
+    // if the collider is not on the same side, it invokes the interactor
+
     public void PageMagicCheck(BaseInteractor interactor)
     {
         if (!_graspingPoint) return;
@@ -25,7 +29,8 @@ public class UnturnableCollider : MonoBehaviour
         var currentPageSide = _graspingPoint.GetSimPageSide();
 
         if (currentPageSide == colliderSide) return;
-        
-        pageMagic.Invoke(interactor);
+
+        if (isStart && currentPageSide != GraspingPoint.SimPageSide.RightSide) isStart = false; // no longer starting side     
+        else if (!isStart) pageMagic.Invoke(interactor); // the incrementation of the page 
     }
 }

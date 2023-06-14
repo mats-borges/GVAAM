@@ -27,10 +27,7 @@ public class Interactor : MonoBehaviour, BaseInteractor
     private float _lastValidGripValue = 0.0f;
     private float _pinchVelocity;
     [SerializeField] private float _smoothTime = 0.2f;
-    
-    /// <summary>
-    /// Are we currently doing hand tracking?
-    /// </summary>       
+       
     private bool IsHandTracking = false;
     private bool wasHandTracking = false; // used to detect hand tracking toggle
 
@@ -81,8 +78,7 @@ public class Interactor : MonoBehaviour, BaseInteractor
             SetInteractorTransform();
             DoHandTrackingUpdate();
         }
-        else
-            DoControllerUpdate();
+        else DoControllerUpdate();
     }
 
     public GameObject GetGameObject()
@@ -214,9 +210,8 @@ public class Interactor : MonoBehaviour, BaseInteractor
         var isSuccessfulPinch = pinchValue > 0.8f;
         var isSuccessfulGrip = handGripValue > 0.8f;
 
-        if (!wasPinchingOrGripping)
+        if (!wasPinchingOrGripping && (isSuccessfulPinch || isSuccessfulGrip)) // changed: add variable to check if it's successfaul pinch or grab 
         {
-            if (!isSuccessfulPinch && !isSuccessfulGrip) return;
             foreach (var obj in intersectedObjects)
             {
                 if (!isCheckingPinchValue && isSuccessfulGrip)
@@ -235,7 +230,7 @@ public class Interactor : MonoBehaviour, BaseInteractor
                 }
             }
         }
-        else
+        else if (wasPinchingOrGripping && (!isSuccessfulGrip && !isSuccessfulPinch)) // not pinching or gripping 
         {
             var cachedList = new List<Interactible>(_grabbedObjects);
             

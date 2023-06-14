@@ -11,7 +11,7 @@ public class BookManager : MonoBehaviour
 
     //leftpagenum is used by pagesideTextManager for the default page
     public int leftPageNum = 0; // change this to private later
-    int simPageNum = 1;
+    int simPageNum = 1; // simpage is initially right page 
     public int rightPageNum = 2; // was 2
     int versoInspectorPageNum = 0;
     int rectoInspectorPageNum = 1;
