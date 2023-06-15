@@ -210,8 +210,9 @@ public class Interactor : MonoBehaviour, BaseInteractor
         var isSuccessfulPinch = pinchValue > 0.8f;
         var isSuccessfulGrip = handGripValue > 0.8f;
 
-        if (!wasPinchingOrGripping && (isSuccessfulPinch || isSuccessfulGrip)) // changed: add variable to check if it's successfaul pinch or grab 
+        if (!wasPinchingOrGripping) 
         {
+            if (!isSuccessfulGrip && !isSuccessfulPinch) return;
             foreach (var obj in intersectedObjects)
             {
                 if (!isCheckingPinchValue && isSuccessfulGrip)
@@ -230,7 +231,7 @@ public class Interactor : MonoBehaviour, BaseInteractor
                 }
             }
         }
-        else if (wasPinchingOrGripping && (!isSuccessfulGrip && !isSuccessfulPinch)) // not pinching or gripping 
+        else 
         {
             var cachedList = new List<Interactible>(_grabbedObjects);
 

@@ -18,9 +18,15 @@ public class UnturnableCollider : MonoBehaviour
     [SerializeField] private InteractibleEvent pageMagic;
     [SerializeField] private GraspingPoint _graspingPoint;
     private bool isStart = true;
+    [SerializeField] private bool isRightCollider;
 
     // if the grasping point is on the same side as the collider, do nothing
     // if the collider is not on the same side, it invokes the interactor
+
+    private void Awake()
+    {
+        isStart = isRightCollider ? true : false; 
+    }
 
     public void PageMagicCheck(BaseInteractor interactor)
     {
