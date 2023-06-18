@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PhysicsPointer : MonoBehaviour, BaseInteractor
 {
+    // on the right hand? why not the left
+
     private int layerMask = 1 << 3; // only allow layer 3 (LaserUI) for raycasts
     
     public float defaultLength = 3.0f;
