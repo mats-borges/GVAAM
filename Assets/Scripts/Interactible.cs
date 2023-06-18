@@ -34,8 +34,8 @@ public class Interactible : MonoBehaviour
 
    public bool TryGrab(Interactor interactor, HandGrabType grabType)
    {
-      if (grabType != handGrabType && grabType != HandGrabType.Controller) return false;
-      
+      if (grabType != handGrabType && grabType != HandGrabType.Controller) return false; 
+
       OnGrab.Invoke(interactor);
 
       return true;

@@ -21,7 +21,7 @@ public class Interactor : MonoBehaviour, BaseInteractor
     public Color _highlightOnTouch = Color.cyan;
     public Color _highlightOnGrab = Color.green;
 
-    public OVRHand ovrHand;
+    public OVRHand ovrHand; // the left or right hand prefab respectively
     private OVRSkeleton handSkeleton;
     private float _dampenedPinchValue = 0.0f;
     private float _lastValidGripValue = 0.0f;
@@ -41,6 +41,11 @@ public class Interactor : MonoBehaviour, BaseInteractor
     private Vector3 _initialPosition = Vector3.zero;
     private OutlineBehaviour _outlineBehaviour;
     private MaterialSwitcher _materialSwitcher;
+
+    public HandGrabType GetHandGrabType()
+    {
+        return currentHandTrackingGesture;
+    }
 
     private void Awake()
     {
@@ -201,20 +206,27 @@ public class Interactor : MonoBehaviour, BaseInteractor
 
     private void DoHandTrackingUpdate()
     {
-        var pinchValue = GetIndexPinch();
-        var handGripValue = GetHandGripStrength();
+        var pinchValue = GetIndexPinch(); // the strength of the pinch (values in range [0,1])
+        var handGripValue = GetHandGripStrength(); // thhe strength of grip
 
-        var isCheckingPinchValue = (pinchValue > handGripValue);
-        currentHandTrackingGesture = isCheckingPinchValue ? HandGrabType.Pinch : HandGrabType.Grip;
+        var isPinching = (pinchValue > handGripValue); 
+        currentHandTrackingGesture = isPinching ? HandGrabType.Pinch : HandGrabType.Grip;
 
-        var isSuccessfulPinch = pinchValue > 0.8f;
-        var isSuccessfulGrip = handGripValue > 0.8f;
+        var isSuccessfulPinch = pinchValue > 0.7f; // changed: was 0.8
+        var isSuccessfulGrip = handGripValue > 0.7f; // changed: was 0.8
 
-        if (!wasPinchingOrGripping) 
+        if (isSuccessfulGrip || isSuccessfulPinch) 
         {
-            if (!isSuccessfulGrip && !isSuccessfulPinch) return;
+            //if (!isSuccessfulGrip && !isSuccessfulPinch) return;
             foreach (var obj in intersectedObjects)
             {
+                if (DoGrab(obj, HandGrabType.Pinch))
+                {
+                    wasPinchingOrGripping = true;
+                }
+                
+              
+                /*
                 if (!isCheckingPinchValue && isSuccessfulGrip)
                 {
                     if (DoGrab(obj, HandGrabType.Grip))
@@ -229,15 +241,20 @@ public class Interactor : MonoBehaviour, BaseInteractor
                         wasPinchingOrGripping = true;
                     }
                 }
+                */
             }
         }
-        else 
+        else if (wasPinchingOrGripping)
         {
             var cachedList = new List<Interactible>(_grabbedObjects);
 
-            var didSucceedInUnpinchOrUngrab = false;
             foreach (var obj in cachedList)
             {
+                if (DoUngrab(obj, HandGrabType.Pinch))
+                {
+                    wasPinchingOrGripping = false;
+                }
+                /*
                 if (!isSuccessfulPinch)
                 {
                     if (DoUngrab(obj, HandGrabType.Pinch))
@@ -253,9 +270,9 @@ public class Interactor : MonoBehaviour, BaseInteractor
                         didSucceedInUnpinchOrUngrab = true;
                     }
                 }
+                */
             }
 
-            wasPinchingOrGripping = !didSucceedInUnpinchOrUngrab;
         }
     }
 
@@ -339,6 +356,7 @@ public class Interactor : MonoBehaviour, BaseInteractor
         }
         if (!handSkeleton) handSkeleton = ovrHand.GetComponentInChildren<OVRSkeleton>();
 
+        // check hand tracking status one more time before attempting to get strength, just to make sure
         UpdateHandTrackingStatus();
 
         if (!IsHandTracking)
@@ -346,7 +364,7 @@ public class Interactor : MonoBehaviour, BaseInteractor
             return 0.0f;
         }
 
-        var handConfidence = ovrHand.GetFingerConfidence(OVRHand.HandFinger.Index);
+        var handConfidence = ovrHand.GetFingerConfidence(OVRHand.HandFinger.Index); // gets tracking confidence level of the system
         var isHandBeingTracked = ovrHand.IsTracked;
 
         if (handConfidence == OVRHand.TrackingConfidence.Low || isHandBeingTracked == false)
@@ -354,7 +372,7 @@ public class Interactor : MonoBehaviour, BaseInteractor
             return 0.0f;
         }
 
-        float indexFingerPinchStrength = ovrHand.GetFingerPinchStrength(OVRHand.HandFinger.Index);
+        float indexFingerPinchStrength = ovrHand.GetFingerPinchStrength(OVRHand.HandFinger.Index); // [0, 1] where 0 is not pinching
 
         return indexFingerPinchStrength;
     }
