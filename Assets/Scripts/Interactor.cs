@@ -217,31 +217,13 @@ public class Interactor : MonoBehaviour, BaseInteractor
 
         if (isSuccessfulGrip || isSuccessfulPinch) 
         {
-            //if (!isSuccessfulGrip && !isSuccessfulPinch) return;
             foreach (var obj in intersectedObjects)
             {
-                if (DoGrab(obj, HandGrabType.Pinch))
+                if (DoGrab(obj, currentHandTrackingGesture)) // will be pinch or grip gesture
                 {
                     wasPinchingOrGripping = true;
                 }
                 
-              
-                /*
-                if (!isCheckingPinchValue && isSuccessfulGrip)
-                {
-                    if (DoGrab(obj, HandGrabType.Grip))
-                    {
-                        wasPinchingOrGripping = true;
-                    }
-                }
-                else if (isCheckingPinchValue && isSuccessfulPinch)
-                {
-                    if (DoGrab(obj, HandGrabType.Pinch))
-                    {
-                        wasPinchingOrGripping = true;
-                    }
-                }
-                */
             }
         }
         else if (wasPinchingOrGripping)
@@ -250,27 +232,14 @@ public class Interactor : MonoBehaviour, BaseInteractor
 
             foreach (var obj in cachedList)
             {
-                if (DoUngrab(obj, HandGrabType.Pinch))
+                if (DoUngrab(obj, HandGrabType.Pinch)) // check if it was pinching
                 {
                     wasPinchingOrGripping = false;
                 }
-                /*
-                if (!isSuccessfulPinch)
+                if (DoUngrab(obj, HandGrabType.Grip)) // check if it was gripping
                 {
-                    if (DoUngrab(obj, HandGrabType.Pinch))
-                    {
-                        didSucceedInUnpinchOrUngrab = true;
-                    }
+                    wasPinchingOrGripping = false;
                 }
-
-                if (!isSuccessfulGrip)
-                {
-                    if (DoUngrab(obj, HandGrabType.Grip))
-                    {
-                        didSucceedInUnpinchOrUngrab = true;
-                    }
-                }
-                */
             }
 
         }

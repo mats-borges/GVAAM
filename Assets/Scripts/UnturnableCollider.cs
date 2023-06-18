@@ -19,9 +19,6 @@ public class UnturnableCollider : MonoBehaviour
     [SerializeField] private GraspingPoint _graspingPoint;
     private bool isStart = true;
     [SerializeField] private bool isRightCollider;
-    [SerializeField] private InteractibleEvent reloadSide;
-    //private bool isHands = true;
-    //[SerializeField] private Interactor sphereInteractor; 
 
     // if the grasping point is on the same side as the collider, do nothing
     // if the collider is not on the same side, it invokes the interactor
@@ -36,11 +33,6 @@ public class UnturnableCollider : MonoBehaviour
         if (!_graspingPoint) return;
 
         var currentPageSide = _graspingPoint.GetSimPageSide();
-
-        // check if hands
-        //isHands = interactorObject.
-
-        // if it is hands, always create a check so only invokes every other 
 
         if (currentPageSide == colliderSide)
         {
