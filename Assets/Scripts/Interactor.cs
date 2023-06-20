@@ -42,6 +42,11 @@ public class Interactor : MonoBehaviour, BaseInteractor
     private OutlineBehaviour _outlineBehaviour;
     private MaterialSwitcher _materialSwitcher;
 
+    [SerializeField] private BoxCollider magCollider;
+    [SerializeField] private BoxCollider ruleCollider;
+    [SerializeField] private BoxCollider leftCollider;
+    [SerializeField] private BoxCollider rightCollider;
+
     public HandGrabType GetHandGrabType()
     {
         return currentHandTrackingGesture;
@@ -219,9 +224,19 @@ public class Interactor : MonoBehaviour, BaseInteractor
         {
             foreach (var obj in intersectedObjects)
             {
-                if (DoGrab(obj, currentHandTrackingGesture)) // will be pinch or grip gesture
+                if (!isPinching) // is gripping 
                 {
-                    wasPinchingOrGripping = true;
+                    if (DoGrab(obj, HandGrabType.Grip)) 
+                    {
+                        wasPinchingOrGripping = true;
+                    }
+                }
+                else 
+                {
+                    if (DoGrab(obj, HandGrabType.Pinch)) 
+                    {
+                        wasPinchingOrGripping = true;
+                    }
                 }
                 
             }
