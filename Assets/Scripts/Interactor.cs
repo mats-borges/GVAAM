@@ -42,10 +42,12 @@ public class Interactor : MonoBehaviour, BaseInteractor
     private OutlineBehaviour _outlineBehaviour;
     private MaterialSwitcher _materialSwitcher;
 
-    [SerializeField] private BoxCollider magCollider;
-    [SerializeField] private BoxCollider ruleCollider;
     [SerializeField] private BoxCollider leftCollider;
     [SerializeField] private BoxCollider rightCollider;
+    [SerializeField] private BoxCollider simPageCollider;
+
+    private bool isGrabbingOther = false;
+    private bool grabbingPage = false; // whether or not currently grabbing a page
 
     public HandGrabType GetHandGrabType()
     {
@@ -158,16 +160,23 @@ public class Interactor : MonoBehaviour, BaseInteractor
         {
             foreach (var obj in intersectedObjects)
             {
-                DoGrab(obj, HandGrabType.Controller);
+                if (!isGrabbingOther || objIsPage(obj) == grabbingPage)
+                {
+                    DoGrab(obj, HandGrabType.Controller);
+                    if (objIsPage(obj)) grabbingPage = true;
+                }
             }
+            isGrabbingOther = true; 
         }
         else
         {
             var cachedList = new List<Interactible>(_grabbedObjects);
             foreach (var obj in cachedList)
             {
+                ungrabPage(obj);
                 DoUngrab(obj, HandGrabType.Controller);
             }
+            isGrabbingOther = false;
         }
     }
 
@@ -224,22 +233,13 @@ public class Interactor : MonoBehaviour, BaseInteractor
         {
             foreach (var obj in intersectedObjects)
             {
-                if (!isPinching) // is gripping 
+                if (DoGrab(obj, currentHandTrackingGesture))
                 {
-                    if (DoGrab(obj, HandGrabType.Grip)) 
-                    {
-                        wasPinchingOrGripping = true;
-                    }
+                    wasPinchingOrGripping = true;
                 }
-                else 
-                {
-                    if (DoGrab(obj, HandGrabType.Pinch)) 
-                    {
-                        wasPinchingOrGripping = true;
-                    }
-                }
-                
+                  
             }
+            isGrabbingOther = true;
         }
         else if (wasPinchingOrGripping)
         {
@@ -247,6 +247,7 @@ public class Interactor : MonoBehaviour, BaseInteractor
 
             foreach (var obj in cachedList)
             {
+                ungrabPage(obj);
                 if (DoUngrab(obj, HandGrabType.Pinch)) // check if it was pinching
                 {
                     wasPinchingOrGripping = false;
@@ -256,6 +257,7 @@ public class Interactor : MonoBehaviour, BaseInteractor
                     wasPinchingOrGripping = false;
                 }
             }
+            isGrabbingOther = false;
 
         }
     }
@@ -288,6 +290,34 @@ public class Interactor : MonoBehaviour, BaseInteractor
         //change interactor sphere's material
         if (!isGrabbing)
             GetComponent<MaterialSwitcher>().TurnOffHighlight();
+    }
+
+
+    private bool objIsPage(Interactible objtoGrab)
+    {
+        var leftPage = leftCollider.gameObject.GetComponent<Interactible>();
+        var rightPage = rightCollider.gameObject.GetComponent<Interactible>();
+        var simPage = simPageCollider.gameObject.GetComponent<Interactible>();
+
+        if (objtoGrab == leftPage || objtoGrab == rightPage || objtoGrab == simPage)
+        {
+            return true;
+            
+        }
+
+        return false;
+    }
+
+    private void ungrabPage(Interactible objtoGrab)
+    {
+        var leftPage = leftCollider.gameObject.GetComponent<Interactible>();
+        var rightPage = rightCollider.gameObject.GetComponent<Interactible>();
+        var simPage = simPageCollider.gameObject.GetComponent<Interactible>();
+
+        if (objtoGrab == leftPage || objtoGrab == rightPage || objtoGrab == simPage)
+        {
+            grabbingPage = false;
+        }
     }
 
 

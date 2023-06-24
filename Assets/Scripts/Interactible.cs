@@ -18,7 +18,7 @@ public enum HandGrabType
 public class Interactible : MonoBehaviour
 {
    public bool isLaserable = false;
-   public HandGrabType handGrabType = HandGrabType.Pinch;
+   public HandGrabType handGrabType = HandGrabType.Pinch; // change to list later 
    
    [Header("Hand-Based Events")]
    public InteractibleEvent OnTouch;
