@@ -15,7 +15,7 @@ public class MenuButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hidden = true;
+        hidden = false;
     }
 
     // Update is called once per frame
