@@ -36,26 +36,4 @@ public class MenuText : MonoBehaviour
         GetComponent<TextMeshPro>().text = stateList[stateNum];
     }
 
-    /* old code
-    public void IncrementState()
-    {
-        stateNum++;
-        if (stateNum >= stateList.Count)
-        {
-            stateNum = 0;
-        }
-        GetComponent<TextMeshPro>().text = stateList[stateNum];
-    }
-
-    
-    public void DecrementState()
-    {
-        stateNum--;
-        if (stateNum < 0)
-        {
-            stateNum = stateList.Count - 1;
-        }
-        GetComponent<TextMeshPro>().text = stateList[stateNum];
-    }
-    */ 
 }

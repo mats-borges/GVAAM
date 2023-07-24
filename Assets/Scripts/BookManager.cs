@@ -4,10 +4,12 @@ using HandPhysicsToolkit.Helpers.Interfaces;
 using Obi;
 using UnityEngine;
 
+
+/*
+ * Functions for updating the pages shown in the book and the corresponding pages of the inspector 
+ */
 public class BookManager : MonoBehaviour
 {
-
-    // functions for updating the pages shown in the book and the corresponding pages of the inspector
 
     //leftpagenum is used by pagesideTextManager for the default page
     public int leftPageNum = 0; // change this to private later
@@ -24,48 +26,38 @@ public class BookManager : MonoBehaviour
     [SerializeField] GameObject versoInspectorPage;
     [SerializeField] GameObject rectoInspectorPage;
     [SerializeField] private GameObject bookSystemObject;
+    //[SerializeField] private RestoreMode restoreMode;
 
-    [SerializeField] List<Material> pageList = new List<Material>(); // stores the page materials
-    [SerializeField] List<Material> restoredList = new List<Material>(); // stores the restored pages
+    [SerializeField] public List<Material> pageList = new List<Material>(); // stores the page materials
+    //[SerializeField] List<Material> restoredList = new List<Material>(); // stores the restored pages
     private List<Material> currList; // used to refernce pageList or restoredList
-    private bool restoreMode = false; 
+
 
     public int getLeftPageNum()
     {
         return leftPageNum;
     }
 
+    public int getRightPageNum()
+    {
+        return rightPageNum;
+    }
+
+    public int getSimPageNum()
+    {
+        return simPageNum;
+    }
+
     // Sets defaults 
     private void Start()
     {
         currList = pageList;
-        restoreMode = false;
         rightPage.GetComponent<Renderer>().material = currList[rightPageNum];
         leftPage.GetComponent<Renderer>().material = currList[leftPageNum];
         simPage.GetComponent<Renderer>().material = currList[simPageNum];
         versoInspectorPage.GetComponent<Renderer>().material = currList[versoInspectorPageNum];
         rectoInspectorPage.GetComponent<Renderer>().material = currList[rectoInspectorPageNum];
         //folioMenuText = GameObject.Find("Advance Page Name Text");
-    }
-
-    public void ToggleRestore()
-    {
-        if (restoreMode) // turn off restored 
-        {
-            currList = pageList;
-            restoreMode = false; 
-        }
-        else // turn on restored 
-        {
-            currList = restoredList;
-            restoreMode = true; 
-        }
-        // update all renders
-        rightPage.GetComponent<Renderer>().material = currList[rightPageNum];
-        leftPage.GetComponent<Renderer>().material = currList[leftPageNum];
-        simPage.GetComponent<Renderer>().material = currList[simPageNum];
-        versoInspectorPage.GetComponent<Renderer>().material = currList[versoInspectorPageNum];
-        rectoInspectorPage.GetComponent<Renderer>().material = currList[rectoInspectorPageNum];
     }
 
     public void Increment(GameObject page,ref int pgn)
@@ -99,6 +91,8 @@ public class BookManager : MonoBehaviour
             Increment(rectoInspectorPage,  ref rectoInspectorPageNum);
         }
 
+        //restoreMode.updateRestoreMode(1);
+
     }
 
     public void decrementAll()
@@ -111,6 +105,8 @@ public class BookManager : MonoBehaviour
             Decrement(versoInspectorPage,  ref versoInspectorPageNum);
             Decrement(rectoInspectorPage,  ref rectoInspectorPageNum);
         }
+
+        //restoreMode.updateRestoreMode(2);
 
     }
 
@@ -151,7 +147,6 @@ public class BookManager : MonoBehaviour
     public void ResetExperienceBM()
     {
         currList = pageList;
-        restoreMode = false;
         leftPageNum = 0;
         simPageNum = 1;
         rightPageNum = 2; 
@@ -182,6 +177,6 @@ public class BookManager : MonoBehaviour
     {
         StartCoroutine(ResetPageRoutine(interactor));
     }
-    
-    
+
+
 }
