@@ -291,7 +291,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238237018}
-  m_Text: Pilgrim Badges
+  m_Text: Badge Imprints
   m_OffsetZ: 0
   m_CharacterSize: 0.88
   m_LineSpacing: 1
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 983407793}
   - component: {fileID: 983407792}
   m_Layer: 0
-  m_Name: Smudge description Text
+  m_Name: Badge description Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -429,6 +429,7 @@ RectTransform:
   m_Children:
   - {fileID: 1438381958}
   - {fileID: 238237019}
+  - {fileID: 1963218342}
   m_Father: {fileID: 1867772424}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -498,11 +499,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'badge description etc..
-
-
-    Try matching one of the badges to the left
-    big page.'
+  m_text: "In the late fifteenth century, metal badges were frequently attached to
+    religious manuscripts and often used as bookmarks identifying a reader\u2019s
+    favorite book section or prayer. \r\n\r\nHere is the impression with metal residue
+    of a metal badge that was once sewn with threads to the parchment in the upper
+    left margin. On the opposite page is a second mark left by the same badge when
+    the metal oxidized. \r\n\r\nOn your left, next to the large, flat pages of the
+    Book of Hours, you can interact with the virtual models of three ancient badges. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
   m_sharedMaterial: {fileID: 5849454577629669521, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
@@ -598,7 +601,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438381957}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -67.3, y: -14.8, z: 0}
+  m_LocalPosition: {x: -67.3, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 983407791}
@@ -631,8 +634,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866412893}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.04, y: 22.05, z: -31.44}
-  m_LocalScale: {x: 1.36396, y: 1.36396, z: 1.36396}
+  m_LocalPosition: {x: -23.25, y: 21.63, z: -51.29}
+  m_LocalScale: {x: 2.5595715, y: 2.5595715, z: 2.5595715}
   m_Children: []
   m_Father: {fileID: 1867772424}
   m_RootOrder: 1
@@ -664,7 +667,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 07880b380456a094f883b6c8873bdd48, type: 2}
+  - {fileID: 2100000, guid: cbf534bdda69ca24fb694d184bf11694, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -750,6 +753,182 @@ MonoBehaviour:
   highlightSphere: {fileID: 1866412893}
   triggerMat: {fileID: 2100000, guid: eff880b6eab64124b9036d6c8e7c39b1, type: 2}
   page: {fileID: 0}
+--- !u!1 &1963218341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1963218342}
+  - component: {fileID: 1963218344}
+  - component: {fileID: 1963218343}
+  m_Layer: 0
+  m_Name: Interactive description Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1963218342
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963218341}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -204.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 983407791}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -209, y: 44.2}
+  m_SizeDelta: {x: 135.6, y: 5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!23 &1963218344
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963218341}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 5849454577629669521, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1963218343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963218341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "Which badge would fit best on this manuscript\u2019s page? Select one
+    of these badges to learn about medieval badges attached to manuscripts:  \r\n\r\nBadge
+    1: \r\nBadge, lead alloy, 46 x 33 mm. \r\nLondon, British Museum, 1848,0828.7.
+    \r\n\r\nBadge 2:\r\nBadge, silver, 23 mm in diameter. \r\nDe La Chambre Hours.
+    The Hague, KB, National Library of the Netherlands, MS 77 L 60, fol. 98r.\r\n\r\nBadge
+    3:\r\nBadge, gilded silver, 21 mm in diameter.\r\nDe La Chambre Hours. The Hague,
+    KB, National Library of the Netherlands, MS 77 L 60, fol. 98r."
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
+  m_sharedMaterial: {fileID: 5849454577629669521, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 60.924126, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1963218344}
+  m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!1 &2034000374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,12 +1198,12 @@ RectTransform:
   m_LocalScale: {x: 0.18644528, y: 0.1864453, z: 0.18644528}
   m_Children: []
   m_Father: {fileID: 6047738767161617107}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 84, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0.3}
-  m_SizeDelta: {x: 135.6, y: 5}
+  m_SizeDelta: {x: 138, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6047738765950278651
 MeshRenderer:
@@ -1087,7 +1266,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A short description of this badge.
+  m_text: A lovers' token, in lead alloy, in the form of a crowned heart with a pin
+    on the reverse.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
   m_sharedMaterial: {fileID: 5849454577629669521, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
@@ -1159,87 +1339,6 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
---- !u!1 &6047738766119419993
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6047738766119419998}
-  - component: {fileID: 6047738766119419996}
-  - component: {fileID: 6047738766119419999}
-  m_Layer: 0
-  m_Name: badge mesh
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6047738766119419998
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6047738766119419993}
-  m_LocalRotation: {x: 0.2292908, y: -0.5258878, z: 0.8187724, w: -0.021899072}
-  m_LocalPosition: {x: -0.2522065, y: 3.268, z: 1.229}
-  m_LocalScale: {x: 50, y: 50, z: 50}
-  m_Children: []
-  m_Father: {fileID: 6047738767161617107}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 121.666, y: -130.614, z: 31.850006}
---- !u!33 &6047738766119419996
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6047738766119419993}
-  m_Mesh: {fileID: -2432090755550338912, guid: 6f78060d6869e1042be33ce53ba8f9b4, type: 3}
---- !u!23 &6047738766119419999
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6047738766119419993}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 2dc7d755fe2261e4588e5e9d1a74ea06, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6047738766235445616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,7 +1692,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6047738766254284646}
   m_LocalRotation: {x: 0.5969253, y: 0, z: 0, w: 0.8022968}
-  m_LocalPosition: {x: 0, y: 0, z: 0.9}
+  m_LocalPosition: {x: 0, y: 0, z: 1.009}
   m_LocalScale: {x: 0.15393755, y: 0.16731638, z: 1.3790232}
   m_Children: []
   m_Father: {fileID: 6047738767640580193}
@@ -1601,8 +1700,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 73.3, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 0}
-  m_SizeDelta: {x: 135.6, y: 5}
+  m_AnchoredPosition: {x: -0.1, y: 1}
+  m_SizeDelta: {x: 138, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6047738766254284645
 MeshRenderer:
@@ -1665,7 +1764,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A short description of this badge.
+  m_text: 'A round stamped silver badge with a pearl border and with the image of
+    a standing saint, probably Thomas Becket from Canterbury, holding a staff. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
   m_sharedMaterial: {fileID: 5849454577629669521, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
@@ -1728,7 +1828,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 64.437706, y: 0, z: 64.42463, w: 0}
+  m_margin: {x: 64.437706, y: 0, z: 63.174995, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1762,16 +1862,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6047738766263761453}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0.6936498, z: -0, w: 0.7203124}
   m_LocalPosition: {x: 0, y: 0, z: -62.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6047738766893291501}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -87.839, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -122.4, y: 38.5}
+  m_AnchoredPosition: {x: -139.4, y: 59.8}
   m_SizeDelta: {x: 135.6, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6047738766263761443
@@ -1835,8 +1935,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This badge isn't quite right. If you look at the back there is a pin showing
-    how it was meant to be worn and was not used for books.
+  m_text: This is a cast badge that was made by shaping molten metal in a mold. It
+    is a heavy badge, which was meant to be worn, fastened with its pin to clothing,
+    a hat, or a bag. Books did not contain this kind of badges, but embossed badges
+    that were stamped in flimsy thin metal and were thus smaller, thinner, and very
+    lightweight. Try again!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
   m_sharedMaterial: {fileID: 5849454577629669521, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
@@ -2029,16 +2132,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6047738766443805257}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0.6936498, z: -0, w: 0.7203124}
   m_LocalPosition: {x: 0, y: 0, z: -62.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6047738766893291501}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -87.839, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -122.39999, y: 38.5}
+  m_AnchoredPosition: {x: -139.4, y: 63.5}
   m_SizeDelta: {x: 135.6, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6047738766443805263
@@ -2102,7 +2205,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This badge is correct!
+  m_text: Embossed badges made of thin sheets of metal like this one were usually
+    sewn to the parchment with needle and threads and sometimes glue. The marks on
+    the parchment suggest that the badge that was once fastened to this page had
+    the same round shape and was of a similar size to this badge. It was also probably
+    made of silver, as silver tends to leave these dark gray or black traces when
+    the metal oxidizes. Great choice!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
   m_sharedMaterial: {fileID: 5849454577629669521, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
@@ -2304,7 +2412,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 135.6, y: 5}
+  m_SizeDelta: {x: 138, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6047738766545179733
 MeshRenderer:
@@ -2367,7 +2475,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A short description of this badge.
+  m_text: 'A round stamped badge in gilded silver with a flat border and with the
+    image of the Virgin and the Child. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
   m_sharedMaterial: {fileID: 5849454577629669521, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
@@ -2654,16 +2763,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6047738766797380599}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0.6936498, z: -0, w: 0.7203124}
   m_LocalPosition: {x: 0, y: 0, z: -62.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6047738766893291501}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -87.839, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -122.39999, y: 38.5}
+  m_AnchoredPosition: {x: -139.4, y: 59.800003}
   m_SizeDelta: {x: 135.6, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6047738766797380597
@@ -2727,8 +2836,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This badge may look like the right shape, but the indents/residue on the
-    page are not gold like the badge.
+  m_text: "This round badge in gilded silver has a flat circular edge. If you look
+    at the badge imprint on the book\u2019s page, you may notice the series of dots
+    along the edge of the impression. They suggest that the badge once attached to
+    this page had a pearl border. Try again!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
   m_sharedMaterial: {fileID: 5849454577629669521, guid: 3eb24cda238222e4aa89985f99563391, type: 2}
@@ -2992,11 +3103,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6047738767161617106}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 4.14, z: 19.19}
+  m_LocalPosition: {x: 1.06, y: 4.25, z: 18.48}
   m_LocalScale: {x: 5.363504, y: 5.363504, z: 5.363504}
   m_Children:
-  - {fileID: 6047738766119419998}
   - {fileID: 6047738765950278533}
+  - {fileID: 340821590136423184}
   m_Father: {fileID: 6047738766963046624}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3578,7 +3689,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6047738767790327705}
   m_LocalRotation: {x: 0.7252069, y: 0.175131, z: 0.6401325, w: -0.18339673}
-  m_LocalPosition: {x: -121.32, y: 15.67, z: -131.37}
+  m_LocalPosition: {x: -134.48, y: 14.68, z: -126.99}
   m_LocalScale: {x: 7.5, y: 7.5, z: 7.5}
   m_Children: []
   m_Father: {fileID: 6047738766893291501}
@@ -3793,3 +3904,84 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8794676921393975339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 340821590136423184}
+  - component: {fileID: 3201487805523933786}
+  - component: {fileID: 2110009076914888398}
+  m_Layer: 0
+  m_Name: badge mesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &340821590136423184
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8794676921393975339}
+  m_LocalRotation: {x: -0.008291109, y: -0.70155054, z: -0.7120592, w: -0.027015176}
+  m_LocalPosition: {x: 0.078, y: 0.363, z: 0.071}
+  m_LocalScale: {x: 47.016205, y: 47.016205, z: 47.016205}
+  m_Children: []
+  m_Father: {fileID: 6047738767161617107}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -87.015, y: 72.666, z: -254.18399}
+--- !u!33 &3201487805523933786
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8794676921393975339}
+  m_Mesh: {fileID: -2432090755550338912, guid: 36cd44d2ebdb34a45ba0aa5e7358c57c, type: 3}
+--- !u!23 &2110009076914888398
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8794676921393975339}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 2dc7d755fe2261e4588e5e9d1a74ea06, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
