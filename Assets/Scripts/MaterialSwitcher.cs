@@ -18,6 +18,21 @@ public class MaterialSwitcher : MonoBehaviour
         originalMat = meshRenderer.material;
     }
 
+    public void setHighlightMat(Material mat)
+    {
+        highlightMaterial = mat;
+    }
+
+    public void setOriginalMat(Material mat)
+    {
+        originalMat = mat;
+    }
+
+    public void setClickedMat(Material mat)
+    {
+        clickedMaterial = mat;
+    }
+
     public void TurnOnHighlight(Color highlightColor)
     {
         if (!isOn)

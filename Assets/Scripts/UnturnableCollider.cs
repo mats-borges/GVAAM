@@ -4,13 +4,16 @@ using HandPhysicsToolkit.Helpers.Interfaces;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+/*
+ * Controls the page turning "magic trick" 
+ * 
+ * Check if player is trying to grab
+ * Check if grabber is on the side closer to the hand
+ * Invoke the magic trick unity events in the inspector
+ */
 public class UnturnableCollider : MonoBehaviour
 {
-    //controls the page turning "magic trick" 
-
-    //check if player is trying to grab
-    //check if grabber is on the side closer to the hand
-    //invoke the magic trick unity events in the inspector
 
     public GraspingPoint.SimPageSide colliderSide = GraspingPoint.SimPageSide.RightSide;
 
