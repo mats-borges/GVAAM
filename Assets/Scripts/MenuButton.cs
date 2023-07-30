@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class MenuButton : MonoBehaviour
 {
     public GameObject menu;
+    public MenuMovement eyeTracking;
 
     private bool hidden;
 
@@ -24,7 +25,7 @@ public class MenuButton : MonoBehaviour
         if (hidden == true && OVRInput.Get(OVRInput.Button.Start, controller))
         {
             //menu.SetActive(true);
-
+            eyeTracking.TrackEye();
             //hidden = false;
             StartCoroutine(OnDelay());
         }
