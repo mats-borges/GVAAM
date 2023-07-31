@@ -16,6 +16,7 @@ public class MenuButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(StartUp());
         hidden = false;
     }
 
@@ -56,5 +57,12 @@ public class MenuButton : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
 
         hidden = false;
+    }
+
+    IEnumerator StartUp()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        menu.SetActive(false);
     }
 }
