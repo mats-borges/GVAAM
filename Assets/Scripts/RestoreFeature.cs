@@ -22,66 +22,88 @@ public class RestoreFeature : MonoBehaviour
 
     [SerializeField] private GraspingPoint _graspingPoint;
     private GraspingPoint.SimPageSide side;
-    [SerializeField] GameObject staticVersion;
+    [SerializeField] GameObject mesh;
 
     [SerializeField] Material restoredMaterial;
-    private bool isRestored; 
-    
+    private bool isRestored;
+    private Vector3 staticLoc;
+
+    private Material originalMat;
+    [SerializeField] private Material highlightMat;
+    public float fadeDuration = 1.0f;
+
 
     // Start is called before the first frame update
     private void Awake()
     {
         actor = simPage.GetComponent<ObiActor>();
-
-        gameObject.layer = LayerMask.NameToLayer("Default");
-        staticVersion.SetActive(false);
-        staticVersion.layer = LayerMask.NameToLayer("Default");
-
+        mesh.layer = LayerMask.NameToLayer("OutlineLayer");
         side = onLeft ? GraspingPoint.SimPageSide.LeftSide : GraspingPoint.SimPageSide.RightSide;
-
         isRestored = false;
+        originalMat = gameObject.GetComponent<MeshRenderer>().material;
     }
 
     // Update is called once per frame
-    private void Update() // TO-DO: figure out why it isn't working to hide when become circle
+    private void Update() 
     {
         GameObject currPage = _graspingPoint.GetSimPageSide() == side ?  simPage : sidePage; // see which side the sim page is on 
-        transform.SetPositionAndRotation(actor.GetParticlePosition(particleIdx), Quaternion.identity);
+        Vector3 loc = actor.GetParticlePosition(particleIdx);
 
         if (currPage == simPage)
         {
-            gameObject.layer = LayerMask.NameToLayer("OutlineLayer");
-            staticVersion.SetActive(false);
-            staticVersion.layer = LayerMask.NameToLayer("Default");
-
-            Vector3 particlePosition = actor.GetParticlePosition(particleIdx); // returns in world space 
-
-            // Calculate the closest point on the target GameObject to the particle's position
-            Vector3 closestPointOnTarget = sidePage.GetComponent<Collider>().ClosestPointOnBounds(particlePosition);
+            mesh.transform.SetPositionAndRotation(loc, Quaternion.identity);
+            Vector3 closestPointOnTarget = sidePage.GetComponent<Collider>().ClosestPointOnBounds(loc);
 
             // Move the sphere to the calculated closest point
-            staticVersion.transform.position = closestPointOnTarget + new Vector3(0.0f, -.5f, 0.0f);
+            staticLoc = closestPointOnTarget + new Vector3(0.1f, -.3f, 0.0f);
         }
         else
         {
-            gameObject.layer = LayerMask.NameToLayer("Default");
-            staticVersion.SetActive(true);
-            staticVersion.layer = LayerMask.NameToLayer("OutlineLayer");
+            mesh.transform.position = staticLoc;
         }
         
     }
 
-    public void displayRestored()
+    public void toggleRestored()
     {
-        gameObject.GetComponent<MeshRenderer>().material = restoredMaterial;
-        staticVersion.GetComponent<MeshRenderer>().material = restoredMaterial;
+        if (!isRestored)
+        {
+            isRestored = true;
+            StartCoroutine(fadeOut(originalMat, restoredMaterial)); // fade effect
+            mesh.GetComponent<MeshRenderer>().material = restoredMaterial;
+            mesh.GetComponent<MaterialSwitcher>().setHighlightMat(restoredMaterial);
+            mesh.GetComponent<MaterialSwitcher>().setOriginalMat(restoredMaterial);
+        }
+        else
+        {
+            isRestored = false;
+            StartCoroutine(fadeOut(restoredMaterial, originalMat));
+            mesh.GetComponent<MeshRenderer>().material = originalMat;
+            mesh.GetComponent<MaterialSwitcher>().setHighlightMat(highlightMat);
+            mesh.GetComponent<MaterialSwitcher>().setOriginalMat(originalMat);
+        }
+    }
 
-        isRestored = true;
+    public IEnumerator fadeOut(Material startMat, Material endMat)
+    {
+        float elapsedTime = 0f;
+        Material newMaterial = new Material(startMat);
 
-        gameObject.GetComponent<MaterialSwitcher>().setHighlightMat(restoredMaterial);
-        gameObject.GetComponent<MaterialSwitcher>().setOriginalMat(restoredMaterial);
-        staticVersion.GetComponent<MaterialSwitcher>().setHighlightMat(restoredMaterial);
-        staticVersion.GetComponent<MaterialSwitcher>().setOriginalMat(restoredMaterial);
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsedTime / fadeDuration);
+
+            // interpolate the material properties 
+            newMaterial.color = Color.Lerp(startMat.color, endMat.color, t);
+            newMaterial.mainTextureOffset = Vector2.Lerp(startMat.mainTextureOffset, endMat.mainTextureOffset, t);
+
+            mesh.GetComponent<MeshRenderer>().material = newMaterial;
+
+            yield return null;
+        }
+
+        mesh.GetComponent<MeshRenderer>().material = endMat;
     }
 
 }
