@@ -52,7 +52,6 @@ public class ControlPanel : MonoBehaviour
         introWallHasBeenTurnedOff = false;
     }
 
-
     public void CycleLanguageName()
     {
         CurLangNum++;
