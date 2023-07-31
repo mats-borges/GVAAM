@@ -809,11 +809,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 5665bc9b-5af3-4b41-85a8-0f9da6a6fb98
+  cloudProjectId: e9a5f77b-0d9e-41d7-aa70-33da1df3d1b7
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Book Of Hours
-  organizationId: matheus-borges-a6855dc0-acf1-4ca7-adfd-a507dc38de73
+  projectName: USC ARC - BoH Updated
+  organizationId: eatluri
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   virtualTexturingSupportEnabled: 0

@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class MenuButton : MonoBehaviour
 {
     public GameObject menu;
+    public MenuMovement eyeTracking;
 
     private bool hidden;
 
@@ -15,6 +16,7 @@ public class MenuButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(StartUp());
         hidden = false;
     }
 
@@ -24,7 +26,7 @@ public class MenuButton : MonoBehaviour
         if (hidden == true && OVRInput.Get(OVRInput.Button.Start, controller))
         {
             //menu.SetActive(true);
-
+            eyeTracking.TrackEye();
             //hidden = false;
             StartCoroutine(OnDelay());
         }
@@ -55,5 +57,12 @@ public class MenuButton : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
 
         hidden = false;
+    }
+
+    IEnumerator StartUp()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        menu.SetActive(false);
     }
 }

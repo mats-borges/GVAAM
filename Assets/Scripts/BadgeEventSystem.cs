@@ -8,6 +8,7 @@ public class BadgeEventSystem : MonoBehaviour
     public GameObject WrongD1;
     public GameObject WrongD2;
     public GameObject RightD;
+    public GameObject BIntro;
 
     [SerializeField] Material triggerMat;
     [SerializeField] private GameObject page;
@@ -29,19 +30,23 @@ public class BadgeEventSystem : MonoBehaviour
         string name = page.GetComponent<MeshRenderer>().material.name;
         if ((name == triggerMat.name + " (Instance)"))
         {
+
             if (col.gameObject.CompareTag("Badge 3 R"))
             {
                 RightD.SetActive(true);
+                BIntro.SetActive(false);
             }
 
             if (col.gameObject.CompareTag("Badge 1 W"))
             {
                 WrongD1.SetActive(true);
+                BIntro.SetActive(false);
             }
 
             if (col.gameObject.CompareTag("Badge 2 W"))
             {
                 WrongD2.SetActive(true);
+                BIntro.SetActive(false);
             }
         }
     }

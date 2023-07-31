@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class IntroWall : MonoBehaviour
 {
@@ -35,11 +36,13 @@ public class IntroWall : MonoBehaviour
             else
             {
                 introWallParent.SetActive(false);
+                LoadNextScene();
             }
         }
         else if (OVRInput.GetDown(OVRInput.Button.Two)) // turn off intro wall when press B
         {
             introWallParent.SetActive(false);
+            LoadNextScene();
         }
     }
 
@@ -47,6 +50,12 @@ public class IntroWall : MonoBehaviour
     {
         textWall.GetComponent<TextMeshPro>().text = textList[currentIndex].Replace("@n", Environment.NewLine);
         spriteWall.GetComponent<SpriteRenderer>().sprite = spriteList[currentIndex];
+        StartCoroutine(FadeInText(3f, textWall.GetComponent<TextMeshPro>()));
+        if (currentIndex == 0 || spriteWall.GetComponent<SpriteRenderer>().sprite != spriteList[currentIndex-1] )
+        {
+            StartCoroutine(FadeInSprite(3f, spriteWall.GetComponent<SpriteRenderer>()));
+        }
+        
     }
 
     public void Restart()
@@ -54,5 +63,31 @@ public class IntroWall : MonoBehaviour
         currentIndex = 0;
         introWallParent.SetActive(true);
         UpdateTextWall();
+    }
+
+
+    public IEnumerator FadeInText(float t, TextMeshPro i)
+    {
+        i.color = new Color(i.color.r, i.color.g, i.color.b, 0);
+        while (i.color.a < 1.0f)
+        {
+            i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a + (Time.deltaTime / t));
+            yield return null;
+        }
+    }
+
+    public IEnumerator FadeInSprite(float t, SpriteRenderer i)
+    {
+        i.color = new Color(i.color.r, i.color.g, i.color.b, 0);
+        while (i.color.a < 1.0f)
+        {
+            i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a + (Time.deltaTime / t));
+            yield return null;
+        }
+    }
+
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene("TemplateScene");
     }
 }
