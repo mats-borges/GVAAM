@@ -294,8 +294,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208730650}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 98.9, y: -51, z: 97.417496}
-  m_LocalScale: {x: 6.5128427, y: 6.5128427, z: 6.5128427}
+  m_LocalPosition: {x: 138.6, y: -37.3, z: 97.417496}
+  m_LocalScale: {x: 5.553313, y: 5.553313, z: 5.553313}
   m_Children: []
   m_Father: {fileID: 1350154361}
   m_RootOrder: 1
@@ -1631,8 +1631,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350154359}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 117, z: 170}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 144.9, z: 170}
+  m_LocalScale: {x: 1.6697, y: 1.6697, z: 1.6697}
   m_Children:
   - {fileID: 1885923428}
   - {fileID: 208730652}
@@ -2212,7 +2212,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -63.40516, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

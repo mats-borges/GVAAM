@@ -16,7 +16,7 @@ public class MenuButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(StartUp());
+        //StartCoroutine(StartUp());
         hidden = false;
     }
 

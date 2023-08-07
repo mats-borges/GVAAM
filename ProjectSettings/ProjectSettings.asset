@@ -788,7 +788,7 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
-    Analytics: 1
+    Analytics: 0
     Build: 0
     Collab: 0
     Game Performance: 0
@@ -809,10 +809,10 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: e9a5f77b-0d9e-41d7-aa70-33da1df3d1b7
+  cloudProjectId: feed4249-02f4-46a9-9f82-8c46d3e73852
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: USC ARC - BoH Updated
+  projectName: USC ARC - BoH Updated (1)
   organizationId: eatluri
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
