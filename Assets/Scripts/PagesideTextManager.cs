@@ -9,13 +9,13 @@ using UnityEngine.Events;
 public class PagesideTextManager : MonoBehaviour
 {
     // controls the transcriptions and translations beside the book
-    
+
     // take in language text files 
     // store them in a useful way (array of strings)
     // display stored texts
     // change what page we're on (including sim page position)
     // change what language we're on
-    
+
     [SerializeField] public List<TextAsset> LanguageFileList = new List<TextAsset>();
     //0 will be empty
     [SerializeField] private GameObject leftTextField;
@@ -23,6 +23,8 @@ public class PagesideTextManager : MonoBehaviour
     [SerializeField] private GameObject bookManager;
     [SerializeField] private GameObject pageMarker;
     [SerializeField] private GameObject controlPanel;
+    [SerializeField] private GameObject leftQuad;
+    [SerializeField] private GameObject rightQuad;
     private GameObject folioMenuText;
 
     private List<string> LanguageTexts;
@@ -31,10 +33,10 @@ public class PagesideTextManager : MonoBehaviour
     private int langNum = 0;
     private string[][] splitArray = null;
 
-    enum pageRegion {LEFT, RIGHT};
+    enum pageRegion { LEFT, RIGHT };
 
     private pageRegion thisFrame, lastFrame;
-    
+
     [SerializeField] public UnityEvent SimPageTurnLeft;
     [SerializeField] public UnityEvent SimPageTurnRight;
 
@@ -52,7 +54,7 @@ public class PagesideTextManager : MonoBehaviour
 
         //take in language text file of each language
         //make an array of individual pages
-        for (int i=1;i<LanguageFileList.Count; i++)
+        for (int i = 1; i < LanguageFileList.Count; i++)
         {
             splitArray[i] = null;
             string fullText = LanguageFileList[i].ToString();
@@ -61,7 +63,7 @@ public class PagesideTextManager : MonoBehaviour
         }
         // the length of all the pages should be the same regardless of language,
         // so take the first non-OFF language
-        totalPages = splitArray[1].Length; 
+        totalPages = splitArray[1].Length;
 
         displayTexts();
 
@@ -88,7 +90,7 @@ public class PagesideTextManager : MonoBehaviour
         if (langNum < 0)
         {
             langNum = LanguageFileList.Count;
-        } 
+        }
         displayTexts();
     }
 
@@ -96,11 +98,11 @@ public class PagesideTextManager : MonoBehaviour
     public void IncrementPageNum()
     {
         // since left and right pages in same file, we will have to increment by 2
-        pageNum+=2; 
-        
+        pageNum += 2;
+
         if (pageNum >= totalPages)
         {
-            pageNum = 0; 
+            pageNum = 0;
         }
         displayTexts();
     }
@@ -108,8 +110,8 @@ public class PagesideTextManager : MonoBehaviour
     public void DecrementPageNum()
     {
         // since left and right pages in same file, we will have to increment by 2
-        pageNum-=2;
-        
+        pageNum -= 2;
+
         if (pageNum < 0)
         {
             pageNum += totalPages;
@@ -124,12 +126,15 @@ public class PagesideTextManager : MonoBehaviour
         {
             leftTextField.GetComponent<TextMeshPro>().text = splitArray[langNum][pageNum];
             rightTextField.GetComponent<TextMeshPro>().text = splitArray[langNum][pageNum + 1];
-            
+            leftQuad.SetActive(true);
+            rightQuad.SetActive(true);
         }
         else
         {
             leftTextField.GetComponent<TextMeshPro>().text = " ";
             rightTextField.GetComponent<TextMeshPro>().text = " ";
+            leftQuad.SetActive(false);
+            rightQuad.SetActive(false);
         }
     }
 
@@ -137,7 +142,7 @@ public class PagesideTextManager : MonoBehaviour
     private void Update()
     {
         //two enum variables, one for this frame, other for last frame. The type of mismatch determines when the increment and decrement functions are called
-        if (pageMarker.transform.position.x < bookManager.transform.position.x )
+        if (pageMarker.transform.position.x < bookManager.transform.position.x)
         {
             thisFrame = pageRegion.LEFT;
         }
@@ -145,8 +150,8 @@ public class PagesideTextManager : MonoBehaviour
         {
             thisFrame = pageRegion.RIGHT;
         }
-        
-        if ( lastFrame == pageRegion.LEFT && thisFrame == pageRegion.RIGHT)
+
+        if (lastFrame == pageRegion.LEFT && thisFrame == pageRegion.RIGHT)
         {
             DecrementPageNum();
             // increment the page inspector also if it's paired
@@ -155,9 +160,9 @@ public class PagesideTextManager : MonoBehaviour
                 Debug.Log("it's getting turned right");
                 SimPageTurnRight.Invoke();
             }
-            
+
         }
-        if ( lastFrame == pageRegion.RIGHT && thisFrame == pageRegion.LEFT)
+        if (lastFrame == pageRegion.RIGHT && thisFrame == pageRegion.LEFT)
         {
             IncrementPageNum();
             // decrement the page inspector also if it's paired
@@ -166,7 +171,7 @@ public class PagesideTextManager : MonoBehaviour
                 Debug.Log("it's getting turned left");
                 SimPageTurnLeft.Invoke();
             }
-  
+
         }
 
         // update the folio text on the control panel in response to page flip
@@ -178,9 +183,9 @@ public class PagesideTextManager : MonoBehaviour
     public void ResetExperiencePTM()
     {
         // safely move the pagemarker to the other side without triggering an increment
-        pageMarker.transform.SetPositionAndRotation(new Vector3(bookManager.transform.position.x + 5, pageMarker.transform.position.y,pageMarker.transform.position.z), Quaternion.identity);
+        pageMarker.transform.SetPositionAndRotation(new Vector3(bookManager.transform.position.x + 5, pageMarker.transform.position.y, pageMarker.transform.position.z), Quaternion.identity);
         lastFrame = pageRegion.RIGHT;
-        
+
         // reset the language and page numbers
         langNum = controlPanel.GetComponent<ControlPanel>().CurLangNum;
         pageNum = bookManager.GetComponent<BookManager>().leftPageNum;
