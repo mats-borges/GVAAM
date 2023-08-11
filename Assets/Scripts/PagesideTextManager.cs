@@ -23,6 +23,8 @@ public class PagesideTextManager : MonoBehaviour
     [SerializeField] private GameObject bookManager;
     [SerializeField] private GameObject pageMarker;
     [SerializeField] private GameObject controlPanel;
+    [SerializeField] private GameObject leftQuad;
+    [SerializeField] private GameObject rightQuad;
     private GameObject folioMenuText;
 
     private List<string> LanguageTexts;
@@ -124,12 +126,15 @@ public class PagesideTextManager : MonoBehaviour
         {
             leftTextField.GetComponent<TextMeshPro>().text = splitArray[langNum][pageNum];
             rightTextField.GetComponent<TextMeshPro>().text = splitArray[langNum][pageNum + 1];
-            
+            leftQuad.SetActive(true);
+            rightQuad.SetActive(true);
         }
         else
         {
             leftTextField.GetComponent<TextMeshPro>().text = " ";
             rightTextField.GetComponent<TextMeshPro>().text = " ";
+            leftQuad.SetActive(false);
+            rightQuad.SetActive(false);
         }
     }
 

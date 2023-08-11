@@ -12,13 +12,21 @@ public class RestoreFeature : MonoBehaviour
     [SerializeField] private GameObject simPage; // simpage
     [SerializeField] private GameObject sidePage; // non-simpage side page 
     [SerializeField] private Material triggerMat;
+
     [SerializeField] private bool onLeft;
+    private Quaternion defaultRotation;
+    private Quaternion defaultSimRotation;
+    [SerializeField] private GameObject _spineCenter;
+    [SerializeField] private GameObject _gp;
+    private float speed = 1f;
+    private float t;
 
     private ObiParticleGroup particleGroup;
     private ObiActor actor;
     private int particleGroupIndex;
     [SerializeField] private string particleGroupName;
     [SerializeField] private int particleIdx = -1;
+    private bool isGripping = false;
 
     [SerializeField] private GraspingPoint _graspingPoint;
     private GraspingPoint.SimPageSide side;
@@ -41,6 +49,15 @@ public class RestoreFeature : MonoBehaviour
         side = onLeft ? GraspingPoint.SimPageSide.LeftSide : GraspingPoint.SimPageSide.RightSide;
         isRestored = false;
         originalMat = gameObject.GetComponent<MeshRenderer>().material;
+        defaultRotation = mesh.transform.rotation;
+        defaultSimRotation = Quaternion.Euler(0.2f, 0f, 0f);
+        t = 0f;
+        isGripping = false;
+    }
+
+    public void handStatus()
+    {
+        isGripping = !isGripping;
     }
 
     // Update is called once per frame
@@ -51,15 +68,40 @@ public class RestoreFeature : MonoBehaviour
 
         if (currPage == simPage)
         {
-            mesh.transform.SetPositionAndRotation(loc, Quaternion.identity);
-            Vector3 closestPointOnTarget = sidePage.GetComponent<Collider>().ClosestPointOnBounds(loc);
-
+            if (isGripping)
+            {
+                Vector3 lineVector = _gp.transform.position - _spineCenter.transform.position;
+                lineVector.z = 0;
+                float angle = Vector3.Angle(lineVector, Vector3.left);
+                Quaternion rotationQuaternion = Quaternion.Euler(0.2f, 0f, -1 * angle);
+                Vector3 perpendicularVector = Vector3.Cross(lineVector, Vector3.forward);
+                perpendicularVector.Normalize();
+                mesh.transform.SetPositionAndRotation(loc + perpendicularVector * .7f, rotationQuaternion);
+            }
+            else if (mesh.transform.rotation != defaultSimRotation)
+            {
+                Vector3 lineVector = _gp.transform.position - _spineCenter.transform.position;
+                lineVector.z = 0;
+                float angle = Vector3.Angle(lineVector, Vector3.left);
+                Quaternion rotationQuaternion = Quaternion.Lerp(Quaternion.Euler(0.2f, 0f, -1 * angle), defaultSimRotation, Mathf.Min(t*speed, 1f));
+                Vector3 perpendicularVector = Vector3.Cross(lineVector, Vector3.forward);
+                perpendicularVector.Normalize();
+                mesh.transform.SetPositionAndRotation(loc + perpendicularVector * .7f, rotationQuaternion);
+                t += Time.deltaTime;
+            }
+            else
+            {
+                t = 0f;
+            }
+            
             // Move the sphere to the calculated closest point
-            staticLoc = closestPointOnTarget + new Vector3(0.1f, -.3f, 0.0f);
+            Vector3 closestPointOnTarget = sidePage.GetComponent<Collider>().ClosestPoint(loc);
+            staticLoc = closestPointOnTarget + new Vector3(0.1f, -0.3f, 0.0f);
         }
         else
         {
             mesh.transform.position = staticLoc;
+            mesh.transform.rotation = defaultRotation; 
         }
         
     }
