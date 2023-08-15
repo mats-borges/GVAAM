@@ -45,4 +45,5 @@ public class UnturnableCollider : MonoBehaviour
         if (isStart && currentPageSide != GraspingPoint.SimPageSide.RightSide) isStart = false; // no longer starting side     
         else if (!isStart) pageMagic.Invoke(interactor); // the incrementation of the page 
     }
+
 }

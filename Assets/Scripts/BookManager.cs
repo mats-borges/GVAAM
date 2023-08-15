@@ -91,8 +91,6 @@ public class BookManager : MonoBehaviour
             Increment(rectoInspectorPage,  ref rectoInspectorPageNum);
         }
 
-        //restoreMode.updateRestoreMode(1);
-
     }
 
     public void decrementAll()
@@ -105,8 +103,6 @@ public class BookManager : MonoBehaviour
             Decrement(versoInspectorPage,  ref versoInspectorPageNum);
             Decrement(rectoInspectorPage,  ref rectoInspectorPageNum);
         }
-
-        //restoreMode.updateRestoreMode(2);
 
     }
 
