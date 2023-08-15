@@ -13,6 +13,7 @@ public class PageEdgeGrabTrigger : MonoBehaviourGizmos
     [FormerlySerializedAs("_trigger")] [SerializeField] private BoxCollider trigger;
     [SerializeField] private ObiActor actor;
     [SerializeField] private string pageEdgeParticleGroupName;
+ 
     private ObiParticleGroup _pageEdgeParticleGroup;
 
     private int minEdge = -1;
@@ -45,6 +46,7 @@ public class PageEdgeGrabTrigger : MonoBehaviourGizmos
     void Awake()
     {
         SetupProps();
+        
     }
 
     void CalculateTriggerBounds()
@@ -111,4 +113,6 @@ public class PageEdgeGrabTrigger : MonoBehaviourGizmos
             Draw.Label2D(particlePos, pIdx.ToString(), 12F);
         }
     }
+
+    
 }

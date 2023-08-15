@@ -18,8 +18,19 @@ public class RestoreMode : MonoBehaviour
     private List<Material> pageList;
     [SerializeField] private List<GameObject> _features;
     private int lastRight;
-    private int lastLeft; 
+    private int lastLeft;
+    private bool isGripping;
 
+
+    public void updateHand()
+    {
+        isGripping = !isGripping;
+    }
+
+    public bool getHandStatus()
+    {
+        return isGripping;
+    }
 
     private void Start()
     {
@@ -42,6 +53,7 @@ public class RestoreMode : MonoBehaviour
 
         lastRight = -1;
         lastLeft = -1;
+        isGripping = false;
     }
 
     public void Update()
@@ -111,6 +123,11 @@ public class RestoreMode : MonoBehaviour
             }
             _lastState = _isActive;
         }
+    }
+
+    public bool restoreModeOn()
+    {
+        return _isActive;
     }
 
     public void ToggleRestore()

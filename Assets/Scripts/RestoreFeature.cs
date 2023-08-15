@@ -10,25 +10,26 @@ using UnityFx.Outline;
 public class RestoreFeature : MonoBehaviour
 {
     [SerializeField] private GameObject simPage; // simpage
-    [SerializeField] private GameObject sidePage; // non-simpage side page 
+    private Material _originalSimMat;
+    [SerializeField] private GameObject sidePage; // non-simpage side page
+    private Material _originalSideMat;
     [SerializeField] private Material triggerMat;
 
     [SerializeField] private bool onLeft;
     private Quaternion defaultRotation;
+    private Vector3 defaultPosition;
     private Quaternion defaultSimRotation;
     [SerializeField] private GameObject _spineCenter;
     [SerializeField] private GameObject _gp;
+    private GraspingPoint _graspingPoint;
     private float speed = 1f;
     private float t;
 
-    private ObiParticleGroup particleGroup;
+    private ObiParticleGroup _particleGroup;
     private ObiActor actor;
-    private int particleGroupIndex;
     [SerializeField] private string particleGroupName;
-    [SerializeField] private int particleIdx = -1;
-    private bool isGripping = false;
-
-    [SerializeField] private GraspingPoint _graspingPoint;
+    [SerializeField] private int particleIdx;
+  
     private GraspingPoint.SimPageSide side;
     [SerializeField] GameObject mesh;
 
@@ -38,65 +39,78 @@ public class RestoreFeature : MonoBehaviour
 
     private Material originalMat;
     [SerializeField] private Material highlightMat;
-    public float fadeDuration = 1.0f;
+    public float fadeDuration = 1f;
 
+    private GameObject currPage;
+    [SerializeField] private RestoreMode restoreMode;
+    [SerializeField] private PageEdgeGrabTrigger pegt;
+    private float minDist;
 
+    
     // Start is called before the first frame update
     private void Awake()
     {
         actor = simPage.GetComponent<ObiActor>();
+        _graspingPoint = _gp.GetComponent<GraspingPoint>();
         mesh.layer = LayerMask.NameToLayer("OutlineLayer");
         side = onLeft ? GraspingPoint.SimPageSide.LeftSide : GraspingPoint.SimPageSide.RightSide;
         isRestored = false;
         originalMat = gameObject.GetComponent<MeshRenderer>().material;
         defaultRotation = mesh.transform.rotation;
+        defaultPosition = mesh.transform.position;
         defaultSimRotation = Quaternion.Euler(0.2f, 0f, 0f);
         t = 0f;
-        isGripping = false;
+        currPage = sidePage;
+        foreach (var @group in actor.blueprint.groups.Where(@group => @group.name == particleGroupName))
+        {
+            _particleGroup = @group;
+
+        }
+        particleIdx = _particleGroup.particleIndices[particleIdx];
+        // particleIdx = _particleGroup.particleIndices[0];
+        // var particlePos = actor.GetParticlePosition(particleIdx);
+        // minDist = Vector3.Distance(particlePos, defaultPosition);
     }
 
-    public void handStatus()
-    {
-        isGripping = !isGripping;
-    }
 
     // Update is called once per frame
     private void Update() 
     {
-        GameObject currPage = _graspingPoint.GetSimPageSide() == side ?  simPage : sidePage; // see which side the sim page is on 
-        Vector3 loc = actor.GetParticlePosition(particleIdx);
+        currPage = _graspingPoint.GetSimPageSide() == side ?  simPage : sidePage; // see which side the sim page is on
+        
 
         if (currPage == simPage)
         {
-            if (isGripping)
+            Vector3 loc = actor.GetParticlePosition(particleIdx);
+
+            if (restoreMode.getHandStatus())
             {
                 Vector3 lineVector = _gp.transform.position - _spineCenter.transform.position;
                 lineVector.z = 0;
                 float angle = Vector3.Angle(lineVector, Vector3.left);
-                Quaternion rotationQuaternion = Quaternion.Euler(0.2f, 0f, -1 * angle);
+                Quaternion rotationQuaternion = Quaternion.Euler(-1f, 0f, -1*angle);
                 Vector3 perpendicularVector = Vector3.Cross(lineVector, Vector3.forward);
                 perpendicularVector.Normalize();
-                mesh.transform.SetPositionAndRotation(loc + perpendicularVector * .7f, rotationQuaternion);
+                mesh.transform.SetPositionAndRotation(loc + perpendicularVector * 1.2f, rotationQuaternion);
             }
-            else if (mesh.transform.rotation != defaultSimRotation)
+            else if (mesh.transform.rotation != defaultRotation)
             {
                 Vector3 lineVector = _gp.transform.position - _spineCenter.transform.position;
                 lineVector.z = 0;
                 float angle = Vector3.Angle(lineVector, Vector3.left);
-                Quaternion rotationQuaternion = Quaternion.Lerp(Quaternion.Euler(0.2f, 0f, -1 * angle), defaultSimRotation, Mathf.Min(t*speed, 1f));
+                Quaternion rotationQuaternion = Quaternion.Lerp(Quaternion.Euler(-1f, 0f, -1 * angle), defaultRotation, Mathf.Min(t*speed, 1f));
                 Vector3 perpendicularVector = Vector3.Cross(lineVector, Vector3.forward);
                 perpendicularVector.Normalize();
-                mesh.transform.SetPositionAndRotation(loc + perpendicularVector * .7f, rotationQuaternion);
+                mesh.transform.SetPositionAndRotation(loc + perpendicularVector * 1.2f, rotationQuaternion);
                 t += Time.deltaTime;
             }
             else
             {
                 t = 0f;
             }
-            
-            // Move the sphere to the calculated closest point
-            Vector3 closestPointOnTarget = sidePage.GetComponent<Collider>().ClosestPoint(loc);
-            staticLoc = closestPointOnTarget + new Vector3(0.1f, -0.3f, 0.0f);
+
+            var closestPoint = sidePage.GetComponent<Collider>().ClosestPoint(loc);
+            staticLoc = closestPoint + new Vector3(0f, 0.5f, 0f);
         }
         else
         {
@@ -111,22 +125,36 @@ public class RestoreFeature : MonoBehaviour
         if (!isRestored)
         {
             isRestored = true;
-            StartCoroutine(fadeOut(originalMat, restoredMaterial)); // fade effect
-            mesh.GetComponent<MeshRenderer>().material = restoredMaterial;
-            mesh.GetComponent<MaterialSwitcher>().setHighlightMat(restoredMaterial);
-            mesh.GetComponent<MaterialSwitcher>().setOriginalMat(restoredMaterial);
+            StartCoroutine(fadeOut(currPage.GetComponent<MeshRenderer>().material, restoredMaterial, currPage)); // fade effect
+            // currPage.GetComponent<MeshRenderer>().material = restoredMaterial;
+            currPage.GetComponent<MaterialSwitcher>().setHighlightMat(restoredMaterial);
+            currPage.GetComponent<MaterialSwitcher>().setOriginalMat(restoredMaterial);
         }
         else
         {
             isRestored = false;
-            StartCoroutine(fadeOut(restoredMaterial, originalMat));
-            mesh.GetComponent<MeshRenderer>().material = originalMat;
-            mesh.GetComponent<MaterialSwitcher>().setHighlightMat(highlightMat);
-            mesh.GetComponent<MaterialSwitcher>().setOriginalMat(originalMat);
+            StartCoroutine(fadeOut(restoredMaterial, triggerMat, currPage));
+            // currPage.GetComponent<MeshRenderer>().material = triggerMat;
+            currPage.GetComponent<MaterialSwitcher>().setHighlightMat(highlightMat);
+            currPage.GetComponent<MaterialSwitcher>().setOriginalMat(triggerMat);
         }
     }
 
-    public IEnumerator fadeOut(Material startMat, Material endMat)
+    public IEnumerator particleLocator()
+    {
+        foreach (var pIdx in _particleGroup.particleIndices)
+        {
+            var particlePos = actor.GetParticlePosition(pIdx);
+            if (Vector3.Distance(particlePos, defaultPosition) < minDist)
+            {
+                particleIdx = pIdx;
+                minDist = Vector3.Distance(particlePos, defaultPosition);
+            }
+        }
+        yield return null;
+    }
+
+    public IEnumerator fadeOut(Material startMat, Material endMat, GameObject mesh)
     {
         float elapsedTime = 0f;
         Material newMaterial = new Material(startMat);
@@ -136,7 +164,8 @@ public class RestoreFeature : MonoBehaviour
             elapsedTime += Time.deltaTime;
             float t = Mathf.Clamp01(elapsedTime / fadeDuration);
 
-            // interpolate the material properties 
+            // interpolate the material properties
+            // renderer.material.color.a = Mathf.Lerp(alphaStart,alphaEnd,lep);
             newMaterial.color = Color.Lerp(startMat.color, endMat.color, t);
             newMaterial.mainTextureOffset = Vector2.Lerp(startMat.mainTextureOffset, endMat.mainTextureOffset, t);
 
