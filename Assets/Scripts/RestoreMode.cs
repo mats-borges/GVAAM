@@ -21,6 +21,8 @@ public class RestoreMode : MonoBehaviour
     private int lastLeft;
     private bool isGripping;
 
+    [SerializeField] GameObject UI;
+ 
 
     public void updateHand()
     {
@@ -54,12 +56,14 @@ public class RestoreMode : MonoBehaviour
         lastRight = -1;
         lastLeft = -1;
         isGripping = false;
+        UI.SetActive(false);
     }
 
     public void Update()
     {
         if (_isActive && _isActive != _lastState) // initial switch to on
         {
+            UI.SetActive(true);
             int currLeft = _graspingPoint.GetSimPageSide() == GraspingPoint.SimPageSide.RightSide ? _bookManager.getLeftPageNum() : _bookManager.getSimPageNum(); // see which side the sim page is on 
             int currRight = currLeft == _bookManager.getLeftPageNum() ? _bookManager.getSimPageNum() : _bookManager.getRightPageNum();
 
@@ -117,6 +121,7 @@ public class RestoreMode : MonoBehaviour
         }
         else if (_isActive != _lastState) // not on 
         {
+            UI.SetActive(false);
             foreach (Material page in _restoredFeatures.Keys)
             {
                 _restoredFeatures[page].Key.SetActive(false);

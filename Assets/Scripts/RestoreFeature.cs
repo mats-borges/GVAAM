@@ -10,9 +10,7 @@ using UnityFx.Outline;
 public class RestoreFeature : MonoBehaviour
 {
     [SerializeField] private GameObject simPage; // simpage
-    private Material _originalSimMat;
     [SerializeField] private GameObject sidePage; // non-simpage side page
-    private Material _originalSideMat;
     [SerializeField] private Material triggerMat;
 
     [SerializeField] private bool onLeft;
@@ -46,6 +44,8 @@ public class RestoreFeature : MonoBehaviour
     [SerializeField] private PageEdgeGrabTrigger pegt;
     private float minDist;
 
+    [SerializeField] private GameObject text;
+
     
     // Start is called before the first frame update
     private void Awake()
@@ -70,6 +70,7 @@ public class RestoreFeature : MonoBehaviour
         // particleIdx = _particleGroup.particleIndices[0];
         // var particlePos = actor.GetParticlePosition(particleIdx);
         // minDist = Vector3.Distance(particlePos, defaultPosition);
+        text.SetActive(false);
     }
 
 
@@ -125,18 +126,22 @@ public class RestoreFeature : MonoBehaviour
         if (!isRestored)
         {
             isRestored = true;
+            text.SetActive(true);
             StartCoroutine(fadeOut(currPage.GetComponent<MeshRenderer>().material, restoredMaterial, currPage)); // fade effect
             // currPage.GetComponent<MeshRenderer>().material = restoredMaterial;
-            currPage.GetComponent<MaterialSwitcher>().setHighlightMat(restoredMaterial);
-            currPage.GetComponent<MaterialSwitcher>().setOriginalMat(restoredMaterial);
+            // currPage.GetComponent<MaterialSwitcher>().setHighlightMat(restoredMaterial);
+            // currPage.GetComponent<MaterialSwitcher>().setOriginalMat(restoredMaterial);
+            
         }
         else
         {
             isRestored = false;
+            text.SetActive(false);
             StartCoroutine(fadeOut(restoredMaterial, triggerMat, currPage));
             // currPage.GetComponent<MeshRenderer>().material = triggerMat;
-            currPage.GetComponent<MaterialSwitcher>().setHighlightMat(highlightMat);
-            currPage.GetComponent<MaterialSwitcher>().setOriginalMat(triggerMat);
+            // currPage.GetComponent<MaterialSwitcher>().setHighlightMat(highlightMat);
+            // currPage.GetComponent<MaterialSwitcher>().setOriginalMat(triggerMat);
+           
         }
     }
 
