@@ -28,6 +28,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleIndices: 1c0000001d0000001e0000001f000000
   m_Blueprint: {fileID: 11400000}
+--- !u!114 &-1113886341887019504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775ad4994fda946d1a5936c7e2dfc785, type: 3}
+  m_Name: lilies
+  m_EditorClassIdentifier: 
+  particleIndices: 0e010000bb010000
+  m_Blueprint: {fileID: 11400000}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23805,6 +23819,7 @@ MonoBehaviour:
   - {fileID: 6844476077332342953}
   - {fileID: 4947557832821541550}
   - {fileID: 1229389616142308373}
+  - {fileID: -1113886341887019504}
   inputMesh: {fileID: -3896382315264562445, guid: 6d7adc69fcebf6c4e88f720f16881801, type: 3}
   scale: {x: 1, y: 1, z: 1}
   rotation: {x: 0, y: 0, z: 0, w: 1}
