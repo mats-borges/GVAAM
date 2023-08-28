@@ -89,3 +89,364 @@ Received Import Request.
 Start importing Assets/3D Models/Beguinage Room Model.dae using Guid(c4f7d43e515fdff4488e6d7f1623a252) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b5d54a2154a39f2bf3a1c86c7442cfd') in 35.293687 seconds
   Import took 35.326082 seconds .
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005019 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.96 ms, found 8 plugins.
+Preloading 1 native plugins for Editor in 0.07 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.992 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524294) extendedPlatform(0)
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 1.03 ms, found 8 plugins.
+Preloading 1 native plugins for Editor in 0.07 ms.
+Unloading 4092 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 196.2 MB.
+System memory in use after: 196.5 MB.
+
+Unloading 52 unused Assets to reduce memory usage. Loaded Objects now: 4830.
+Total: 2.898700 ms (FindLiveObjects: 0.280600 ms CreateObjectMapping: 0.101100 ms MarkObjects: 2.437100 ms  DeleteObjects: 0.079100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 68.140844 seconds.
+  path: Assets/3D Models/Beguinage Room Model.dae
+  artifactKey: Guid(c4f7d43e515fdff4488e6d7f1623a252) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/3D Models/Beguinage Room Model.dae using Guid(c4f7d43e515fdff4488e6d7f1623a252) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3cc37a506485a18ebd27b9343418169') in 11.401462 seconds
+  Import took 11.434755 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.446215 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/a0000000-0000-0000-0000-000000000000.mat
+  artifactKey: Guid(bb6122e0e51e2784b91a36e1adbf7a7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/a0000000-0000-0000-0000-000000000000.mat using Guid(bb6122e0e51e2784b91a36e1adbf7a7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '677215f84add29563888a2fea5915dee') in 0.026865 seconds
+  Import took 0.032835 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000140 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__1_.mat
+  artifactKey: Guid(ddc8356b5ba520146961501124234187) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__1_.mat using Guid(ddc8356b5ba520146961501124234187) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd97ed003f931fb4bf8c0ce69b2cf9075') in 0.007050 seconds
+  Import took 0.012751 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000156 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Ebony_100_DP.jpg
+  artifactKey: Guid(66532630344dadd4b991b89cb91e8d6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Ebony_100_DP.jpg using Guid(66532630344dadd4b991b89cb91e8d6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9740fc91e39938112fb4e2b7636bb4e9') in 0.041904 seconds
+  Import took 0.048624 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Oak_dark.mat
+  artifactKey: Guid(84f7625b0d180c44caebc5fa36d52bc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Oak_dark.mat using Guid(84f7625b0d180c44caebc5fa36d52bc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e33a170a8121cadeb448fb88ecf2874') in 0.006650 seconds
+  Import took 0.013346 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000158 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__3_.mat
+  artifactKey: Guid(c6bcf2dc4d907a6459809fec206cc2ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__3_.mat using Guid(c6bcf2dc4d907a6459809fec206cc2ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6c7fe24fe728fd666b794fbc8455a59') in 0.006536 seconds
+  Import took 0.013289 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Window_Detail.mat
+  artifactKey: Guid(f87fba3b52dabf348b6143ca0b6e3f7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Window_Detail.mat using Guid(f87fba3b52dabf348b6143ca0b6e3f7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86c80f1de8ad050133c1e86f5461ec0f') in 0.006751 seconds
+  Import took 0.013826 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000161 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Bosse.mat
+  artifactKey: Guid(1ad8f1d8432c59e409dd82aaf50c763b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Bosse.mat using Guid(1ad8f1d8432c59e409dd82aaf50c763b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eca280db7c309acd75c793529011d28e') in 0.006414 seconds
+  Import took 0.013281 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000201 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Off-White_Plaster.mat
+  artifactKey: Guid(331264978261c5c46b3bfd54bb8774fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Off-White_Plaster.mat using Guid(331264978261c5c46b3bfd54bb8774fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41617bb8a5fd19195e9795e46026c2e4') in 0.006869 seconds
+  Import took 0.013728 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Conc dark gray_600_DB.jpg
+  artifactKey: Guid(e3ee4ed23cad34647ab38aebed36fc1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Conc dark gray_600_DB.jpg using Guid(e3ee4ed23cad34647ab38aebed36fc1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '451f0b54d6cd67372692b3643a7b9877') in 0.023807 seconds
+  Import took 0.030999 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000146 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Poured_cement.mat
+  artifactKey: Guid(afc3b4be24d83ee4b892e782a8418903) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Poured_cement.mat using Guid(afc3b4be24d83ee4b892e782a8418903) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1296d7f5caf8ba419551e6bb7124e16') in 0.006326 seconds
+  Import took 0.012858 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__4_.mat
+  artifactKey: Guid(61d8e47b4215c354c846e66fe91a6e3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__4_.mat using Guid(61d8e47b4215c354c846e66fe91a6e3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fb05e6c36c04ec31ae3d132684ab2a2') in 0.006564 seconds
+  Import took 0.013109 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000151 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Oak__1_.mat
+  artifactKey: Guid(12fd10e7a3a17474394fd3b2f956097c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Oak__1_.mat using Guid(12fd10e7a3a17474394fd3b2f956097c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b242153463663d5b43a4a6aeddeb176') in 0.005792 seconds
+  Import took 0.011857 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000126 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Frosted_Clear_Glass.mat
+  artifactKey: Guid(fb04b929843b5804c9ef11474091a911) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Frosted_Clear_Glass.mat using Guid(fb04b929843b5804c9ef11474091a911) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27d4d7579cd7cba5893b88bd8f94b6e0') in 0.006463 seconds
+  Import took 0.012774 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-SW_old_blocks_random.mat
+  artifactKey: Guid(4776d462c26eb6b40a4b2ae3d4517c5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-SW_old_blocks_random.mat using Guid(4776d462c26eb6b40a4b2ae3d4517c5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '981cc7e82fbeb5dbff8f673e562e80b9') in 0.006204 seconds
+  Import took 0.012942 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__2_.mat
+  artifactKey: Guid(c15adc16ba071dc42b933a04f579be73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__2_.mat using Guid(c15adc16ba071dc42b933a04f579be73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3417b035356fc1c4fb8ca6e5ba52ca48') in 0.006756 seconds
+  Import took 0.013879 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Oak_dark__2_.mat
+  artifactKey: Guid(669bfaeb602074048b8b02eb2a34ce0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Oak_dark__2_.mat using Guid(669bfaeb602074048b8b02eb2a34ce0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08a02d6ae523aea39ab9e2826b5c5987') in 0.006767 seconds
+  Import took 0.013981 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000174 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Stretch_bond_bricks_washed.mat
+  artifactKey: Guid(2943e916619970c408f5ae07e3764926) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Stretch_bond_bricks_washed.mat using Guid(2943e916619970c408f5ae07e3764926) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b22b0567f256ea25e41fa4067fd12be9') in 0.006390 seconds
+  Import took 0.013199 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000163 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Ceramic_gray.mat
+  artifactKey: Guid(b37ef8f60ca949446ba6001efc50b9bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Ceramic_gray.mat using Guid(b37ef8f60ca949446ba6001efc50b9bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f2467dc760369b0fc9858c981bc092a') in 0.006472 seconds
+  Import took 0.013446 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000171 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__5_.mat
+  artifactKey: Guid(5a52ac0e1b7c99c4ba5b7b11d77b3992) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__5_.mat using Guid(5a52ac0e1b7c99c4ba5b7b11d77b3992) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7d1c784044f9083c5cbb4605404a7fc') in 0.006474 seconds
+  Import took 0.012894 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000170 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Oak.mat
+  artifactKey: Guid(b4ddeea81929bdc47a061732d669ab2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Oak.mat using Guid(b4ddeea81929bdc47a061732d669ab2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c13121a7d30722ed3ea947457119e2b6') in 0.006612 seconds
+  Import took 0.013140 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-masonrytexture_smooth_colored_pattern_y5617.mat
+  artifactKey: Guid(f49b617fb079bdf46ad441266aa54f15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-masonrytexture_smooth_colored_pattern_y5617.mat using Guid(f49b617fb079bdf46ad441266aa54f15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7982595fde33f1ff20c580cc8db669b') in 0.006392 seconds
+  Import took 0.013264 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Off-White_Plaster__1_.mat
+  artifactKey: Guid(4c2ea8e7465c1a342a49424e6535d0a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Off-White_Plaster__1_.mat using Guid(4c2ea8e7465c1a342a49424e6535d0a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57df143286ac7d2631e2de7e87b7ddb2') in 0.006541 seconds
+  Import took 0.013577 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Room_Perspective.mat
+  artifactKey: Guid(d8e93a3284130b14b95d36b67cbde056) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Room_Perspective.mat using Guid(d8e93a3284130b14b95d36b67cbde056) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a94b08653803c0f3376547a21909eae') in 0.006448 seconds
+  Import took 0.013190 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000134 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster.mat
+  artifactKey: Guid(118256ac408b78f4980a2b88dcaf02b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster.mat using Guid(118256ac408b78f4980a2b88dcaf02b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ac0a73ee0730ae79f2d066740ceceeb') in 0.006445 seconds
+  Import took 0.013629 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Oak_dark_polished.mat
+  artifactKey: Guid(2ef0a8f423002b64eb64b0e103a6c3c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Oak_dark_polished.mat using Guid(2ef0a8f423002b64eb64b0e103a6c3c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db6ace4eb3ce58732b5fa8e2b37e9a28') in 0.007030 seconds
+  Import took 0.014261 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008717 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.06 ms, found 8 plugins.
+Preloading 1 native plugins for Editor in 0.07 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.008 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(524294) extendedPlatform(0)
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Oculus/OVRMRCameraFrameLit': fallback shader 'Alpha-Diffuse' not found
+Refreshing native plugins compatible for Editor in 1.10 ms, found 8 plugins.
+Preloading 1 native plugins for Editor in 0.07 ms.
+Unloading 4092 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 211.9 MB.
+System memory in use after: 212.2 MB.
+
+Unloading 52 unused Assets to reduce memory usage. Loaded Objects now: 4876.
+Total: 3.156300 ms (FindLiveObjects: 0.326800 ms CreateObjectMapping: 0.113300 ms MarkObjects: 2.622000 ms  DeleteObjects: 0.093300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 1362.708085 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Off-White_Plaster__1_.mat
+  artifactKey: Guid(4c2ea8e7465c1a342a49424e6535d0a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Off-White_Plaster__1_.mat using Guid(4c2ea8e7465c1a342a49424e6535d0a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7851389aeaaebc35fdf28e41300ac47f') in 0.148724 seconds
+  Import took 0.154727 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000251 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__1_.mat
+  artifactKey: Guid(ddc8356b5ba520146961501124234187) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__1_.mat using Guid(ddc8356b5ba520146961501124234187) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63cfc603a96b1a1d37c6a02eec3cc085') in 0.008014 seconds
+  Import took 0.013822 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000284 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__3_.mat
+  artifactKey: Guid(c6bcf2dc4d907a6459809fec206cc2ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__3_.mat using Guid(c6bcf2dc4d907a6459809fec206cc2ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44fbfff343c8546fd99e7ad1b92e685d') in 0.005918 seconds
+  Import took 0.011711 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000127 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Window_Detail.mat
+  artifactKey: Guid(f87fba3b52dabf348b6143ca0b6e3f7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Window_Detail.mat using Guid(f87fba3b52dabf348b6143ca0b6e3f7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d1cfa5e1465bf0796f5a1cdcdee0e08') in 0.006406 seconds
+  Import took 0.011711 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Poured_cement.mat
+  artifactKey: Guid(afc3b4be24d83ee4b892e782a8418903) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Poured_cement.mat using Guid(afc3b4be24d83ee4b892e782a8418903) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf317e83abe8d65c6f6fa2266b16f897') in 0.006070 seconds
+  Import took 0.011922 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__4_.mat
+  artifactKey: Guid(61d8e47b4215c354c846e66fe91a6e3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__4_.mat using Guid(61d8e47b4215c354c846e66fe91a6e3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53c8d683b8b4428be89f9af0a033dc1c') in 0.006052 seconds
+  Import took 0.011570 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000119 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__2_.mat
+  artifactKey: Guid(c15adc16ba071dc42b933a04f579be73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__2_.mat using Guid(c15adc16ba071dc42b933a04f579be73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd049f7ced5eda06de0be929c73d455d6') in 0.006565 seconds
+  Import took 0.012352 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-SW_old_blocks_random.mat
+  artifactKey: Guid(4776d462c26eb6b40a4b2ae3d4517c5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-SW_old_blocks_random.mat using Guid(4776d462c26eb6b40a4b2ae3d4517c5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fac251d01f2d2363f5d768a5cf41a4ac') in 0.027394 seconds
+  Import took 0.033694 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Stretch_bond_bricks_washed.mat
+  artifactKey: Guid(2943e916619970c408f5ae07e3764926) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Stretch_bond_bricks_washed.mat using Guid(2943e916619970c408f5ae07e3764926) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad64e57dc1cd97aa15935e16212c731a') in 0.006966 seconds
+  Import took 0.013518 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000260 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__5_.mat
+  artifactKey: Guid(5a52ac0e1b7c99c4ba5b7b11d77b3992) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster__5_.mat using Guid(5a52ac0e1b7c99c4ba5b7b11d77b3992) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '539b9b5daef561ab4fafde7cacfd63fd') in 0.006720 seconds
+  Import took 0.013042 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Room_Perspective.mat
+  artifactKey: Guid(d8e93a3284130b14b95d36b67cbde056) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Room_Perspective.mat using Guid(d8e93a3284130b14b95d36b67cbde056) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0eef6aa62a1706891d45420e25d3eaf') in 0.006760 seconds
+  Import took 0.013189 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster.mat
+  artifactKey: Guid(118256ac408b78f4980a2b88dcaf02b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/3D Models/Beguinage Room Model Textures/Material-Plaster.mat using Guid(118256ac408b78f4980a2b88dcaf02b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72d35e51b8dacb6c59d482543f08e789') in 0.006929 seconds
+  Import took 0.013680 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
