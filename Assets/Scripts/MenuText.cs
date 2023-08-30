@@ -6,13 +6,14 @@ using UnityEngine;
 
 public class MenuText : MonoBehaviour
 {
-    
+
     //controls the name of the folio displayed in the control panel
-    
+
     //takes in list of names from inspector
     [SerializeField] private List<string> stateList = new List<string>();
-    private PagesideTextManager pagesideTextManager; 
+    [SerializeField] private BookManager bookManager;
     private int stateNum = 0;
+
 
     private void Start()
     {
@@ -20,15 +21,16 @@ public class MenuText : MonoBehaviour
         {
             GetComponent<TextMeshPro>().text = stateList[0]; // always start at the first page
         }
-        pagesideTextManager = GameObject.Find("Pageside Text Manager").GetComponent<PagesideTextManager>();
+
     }
 
     // update based on code in PagesideTextManager that recognizes if the page has been turned
-    public void updateState() 
+    public void updateState()
     {
-        stateNum = pagesideTextManager.getPageNum()/2; // get the left page number
+        stateNum = bookManager.getLeftPageNum(); // get the left page number
         GetComponent<TextMeshPro>().text = stateList[stateNum];
     }
+
 
     public void ResetExperienceMT()
     {
