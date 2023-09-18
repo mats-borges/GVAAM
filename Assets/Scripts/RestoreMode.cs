@@ -76,6 +76,12 @@ public class RestoreMode : MonoBehaviour
 
             }
 
+            if (_restoredFeatures.ContainsKey(rightPage) && !_restoredFeatures[rightPage].Value)
+            {
+                _restoredFeatures[rightPage].Key.SetActive(true);
+
+            }
+
             lastLeft = currLeft;
             lastRight = currRight;
             _lastState = _isActive; // update lastState to on
@@ -110,6 +116,11 @@ public class RestoreMode : MonoBehaviour
                 if (_restoredFeatures.ContainsKey(leftPage) && _restoredFeatures[leftPage].Value)
                 {
                     _restoredFeatures[leftPage].Key.SetActive(true);
+
+                }
+                if (_restoredFeatures.ContainsKey(rightPage) && !_restoredFeatures[rightPage].Value)
+                {
+                    _restoredFeatures[rightPage].Key.SetActive(true);
 
                 }
             }
