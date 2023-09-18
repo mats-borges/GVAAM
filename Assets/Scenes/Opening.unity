@@ -275,7 +275,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c9a1385ff42b1fc48bcdd30bb21631f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 122aa695153f8474287a6b9ff29d2805, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -294,7 +294,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208730650}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 111.3, y: -39.1, z: 100.3}
+  m_LocalPosition: {x: 111.3, y: -50.4, z: 74.1}
   m_LocalScale: {x: 8.418757, y: 8.418757, z: 8.418757}
   m_Children: []
   m_Father: {fileID: 1350154361}
@@ -1617,10 +1617,10 @@ MonoBehaviour:
     National Endowment for the Humanities.\r\n\r\nPinch your fingers or press 'A'
     to continue. Press 'B' to enter the experience.\r\n"
   spriteList:
-  - {fileID: 21300000, guid: c9a1385ff42b1fc48bcdd30bb21631f3, type: 3}
-  - {fileID: 21300000, guid: 2940c95057a76fa42a3ba51a41fb9d43, type: 3}
-  - {fileID: 21300000, guid: 4d1f9754eec755745a320953a381f826, type: 3}
-  - {fileID: 21300000, guid: d221267a1e54bd842b6f486197f74cd3, type: 3}
+  - {fileID: 21300000, guid: 122aa695153f8474287a6b9ff29d2805, type: 3}
+  - {fileID: 21300000, guid: aad5e979c6ef05944b0a55beaae96602, type: 3}
+  - {fileID: 21300000, guid: d136667cdf6835f458f1ee920619fb48, type: 3}
+  - {fileID: 21300000, guid: e35f0b9b67f589f44bf6884093ef88c7, type: 3}
   - {fileID: 21300000, guid: ed9ae26d8b000024e968baa86185570e, type: 3}
   - {fileID: 21300000, guid: ed9ae26d8b000024e968baa86185570e, type: 3}
 --- !u!4 &1350154361
