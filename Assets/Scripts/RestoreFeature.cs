@@ -92,16 +92,18 @@ public class RestoreFeature : MonoBehaviour
                 Quaternion rotationQuaternion = Quaternion.Euler(-1f, 0f, -1*angle);
                 Vector3 perpendicularVector = Vector3.Cross(lineVector, Vector3.forward);
                 perpendicularVector.Normalize();
+                perpendicularVector.y = Mathf.Abs(perpendicularVector.y);
                 mesh.transform.SetPositionAndRotation(loc + perpendicularVector * 1.2f, rotationQuaternion);
             }
             else if (mesh.transform.rotation != defaultRotation)
             {
                 Vector3 lineVector = _gp.transform.position - _spineCenter.transform.position;
                 lineVector.z = 0;
-                float angle = Vector3.Angle(lineVector, Vector3.left);
+                float angle = onLeft? Vector3.Angle(lineVector, Vector3.left) : Vector3.Angle(lineVector, -1*Vector3.left);
                 Quaternion rotationQuaternion = Quaternion.Lerp(Quaternion.Euler(-1f, 0f, -1 * angle), defaultRotation, Mathf.Min(t*speed, 1f));
                 Vector3 perpendicularVector = Vector3.Cross(lineVector, Vector3.forward);
                 perpendicularVector.Normalize();
+                perpendicularVector.y = Mathf.Abs(perpendicularVector.y);
                 mesh.transform.SetPositionAndRotation(loc + perpendicularVector * 1.2f, rotationQuaternion);
                 t += Time.deltaTime;
             }
