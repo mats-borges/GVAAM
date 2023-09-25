@@ -9,11 +9,14 @@ public class ControlReminder : MonoBehaviour
 
     [SerializeField] Material triggerMat;
     [SerializeField] private GameObject page;
+    private bool handViewed;
+    private bool contViewed;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        handViewed = false;
+        contViewed = false;
     }
 
     // Update is called once per frame
@@ -37,12 +40,13 @@ public class ControlReminder : MonoBehaviour
         string name = page.GetComponent<MeshRenderer>().material.name;
         Debug.Log(name);
         Debug.Log(triggerMat.name + " (Instance)");
-        if ((name == triggerMat.name + " (Instance)"))
+        if ((name == triggerMat.name + " (Instance)") && !handViewed)
         {
             HandDescription.SetActive(true);
         }
         else
         {
+            handViewed = true;
             HandDescription.SetActive(false);
         }
     }
@@ -52,12 +56,13 @@ public class ControlReminder : MonoBehaviour
         string name = page.GetComponent<MeshRenderer>().material.name;
         Debug.Log(name);
         Debug.Log(triggerMat.name + " (Instance)");
-        if ((name == triggerMat.name + " (Instance)"))
+        if ((name == triggerMat.name + " (Instance)") && !contViewed)
         {
             ControllerDescription.SetActive(true);
         }
         else
         {
+            contViewed = true;
             ControllerDescription.SetActive(false);
         }
     }
