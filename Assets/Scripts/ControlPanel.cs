@@ -10,6 +10,17 @@ public class ControlPanel : MonoBehaviour
     private string languageName;
     private List<string> langList = new List<string>();
 
+    private List<AudioClip> musicList = new List<AudioClip>();
+    private List<string> musicNameList = new List<string>();
+
+    [SerializeField] private GameObject BGMusic;
+    [SerializeField] private GameObject MusicNameTextObject;
+    private TextMeshPro MusicNameText;
+    public int CurMusicNum = 0;
+
+    private AudioClip Track;
+    public int CurTrackNum = 0;
+
     [SerializeField] private GameObject langNameTextObject;
     [SerializeField] private GameObject pagesideTextManager;
     private TextMeshPro langNameText;
@@ -17,8 +28,12 @@ public class ControlPanel : MonoBehaviour
 
     [SerializeField] private UnityEvent onMusicPress;
     [SerializeField] private GameObject musicObject;
-    [SerializeField] private GameObject musicOnOffText;
-    private bool musicHasBeenTurnedOff;
+    [SerializeField] private GameObject musicName;
+    [SerializeField] private GameObject pauseButton;
+    [SerializeField] private Material pause;
+    [SerializeField] private Material play;
+
+    private bool musicHasBeenPaused;
 
     [SerializeField] private UnityEvent onIntroWallPress;
     [SerializeField] public GameObject introWallObject;
@@ -39,17 +54,77 @@ public class ControlPanel : MonoBehaviour
     {
         //fill a list with the names of all language files from the pageside text manager
         List<TextAsset> langAssetList = pagesideTextManager.GetComponent<PagesideTextManager>().LanguageFileList;
+
+        List<AudioClip> musicLists = BGMusic.GetComponent<MusicManager>().MusicList;
+        List<string> musicNameLists = BGMusic.GetComponent<MusicManager>().MusicNameList;
+
         for (int i = 0; i < langAssetList.Count; i++)
         {
             langList.Add(langAssetList[i].name);
         }
 
+        for (int i = 0; i < musicLists.Count; i++)
+        {
+            musicList.Add(musicLists[i]);
+        }
+
+        for (int i = 0; i < musicNameLists.Count; i++)
+        {
+            musicNameList.Add(musicNameLists[i]);
+        }
+
+        MusicNameText = MusicNameTextObject.GetComponent<TextMeshPro>();
+        MusicNameText.text = musicNameList[CurMusicNum];
+
+        Track = musicList[CurTrackNum];
+
         langNameText = langNameTextObject.GetComponent<TextMeshPro>();
         langNameText.text = langList[CurLangNum];
 
-        musicHasBeenTurnedOff = false;
+        musicHasBeenPaused = false;
         AnnotationHasBeenTurnedOff = false;
         introWallHasBeenTurnedOff = false;
+    }
+
+    //Cycle music name
+    public void CycleMusicName()
+    {
+        CurMusicNum++;
+        if (CurMusicNum >= musicNameList.Count)
+        {
+            CurMusicNum = 0;
+        }
+        MusicNameText.text = musicNameList[CurMusicNum];
+    }
+
+    public void CycleMusicNameBackwards()
+    {
+        CurMusicNum--;
+        if (CurMusicNum <= musicNameList.Count)
+        {
+            CurMusicNum = musicNameList.Count;
+        }
+        MusicNameText.text = musicNameList[CurMusicNum];
+    }
+
+    public void CycleTrack()
+    {
+        CurTrackNum++;
+        if (CurTrackNum > musicList.Count)
+        {
+            CurTrackNum = 0;
+        }
+        Track = musicList[CurTrackNum];
+    }
+
+    public void CycleTrackBackwards()
+    {
+        CurTrackNum--;
+        if (CurTrackNum <= musicList.Count)
+        {
+            CurTrackNum = musicList.Count;
+        }
+        Track = musicList[CurTrackNum];
     }
 
     public void CycleLanguageName()
@@ -75,17 +150,18 @@ public class ControlPanel : MonoBehaviour
 
     public void UpdateMusicOnOff()
     {
-        if (musicHasBeenTurnedOff == false)
+        if (musicHasBeenPaused == false)
         {
-            musicOnOffText.GetComponent<TextMeshPro>().text = "OFF";
+            pauseButton.GetComponent<Renderer>().sharedMaterial = pause;
             musicObject.GetComponent<AudioSource>().Pause();
-            musicHasBeenTurnedOff = true;
+            musicHasBeenPaused = true;
         }
         else
         {
-            musicOnOffText.GetComponent<TextMeshPro>().text = "ON";
+            pauseButton.GetComponent<Renderer>().sharedMaterial = play;
             musicObject.GetComponent<AudioSource>().Play();
-            musicHasBeenTurnedOff = false;
+            musicHasBeenPaused = false;
+            Debug.Log("play");
         }
     }
 
@@ -145,9 +221,9 @@ public class ControlPanel : MonoBehaviour
         langNameText.text = langList[CurLangNum];
 
         //music
-        musicOnOffText.GetComponent<TextMeshPro>().text = "ON";
-        musicObject.GetComponent<AudioSource>().Play();
-        musicHasBeenTurnedOff = false;
+        //musicOnOffText.GetComponent<TextMeshPro>().text = "ON";
+        //musicObject.GetComponent<AudioSource>().Play();
+        //musicHasBeenTurnedOff = false;
 
         //intro wall
         introWallOnOffText.GetComponent<TextMeshPro>().text = "ON";
