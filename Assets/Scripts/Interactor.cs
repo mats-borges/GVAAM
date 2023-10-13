@@ -266,6 +266,8 @@ public class Interactor : MonoBehaviour, BaseInteractor
     {
         var interactible = other.gameObject.GetComponent<Interactible>();
         if (!interactible) return;
+        if (isGrabbing && other != simPageCollider) return;
+        //if (isIntersecting) return; // trying to prevent from grabbing another thing 
 
         isIntersecting = true;
         intersectedObjects.Add(interactible);
@@ -295,6 +297,7 @@ public class Interactor : MonoBehaviour, BaseInteractor
 
     private bool objIsPage(Interactible objtoGrab)
     {
+        //if (isIntersecting) return false; // trying to prevent from grabbing another thing 
         var leftPage = leftCollider.gameObject.GetComponent<Interactible>();
         var rightPage = rightCollider.gameObject.GetComponent<Interactible>();
         var simPage = simPageCollider.gameObject.GetComponent<Interactible>();

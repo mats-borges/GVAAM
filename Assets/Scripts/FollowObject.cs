@@ -29,21 +29,37 @@ public class FollowObject : MonoBehaviour
         {
             Vector3 newPos = targetObject.transform.position;
             _isHandTracking = currentInteractor.GetIsHandTracking();
-            
+
             var posOffset = (!_isHandTracking) ? controllerPosOffset : handtrackingPosOffset;
             var rotOffset = (!_isHandTracking) ? controllerRotOffset : handtrackingRotOffset;
-            
-            transform.position = Vector3.MoveTowards(transform.position, newPos, 100000f);
-            transform.position += posOffset;
 
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetObject.rotation,360);
+            // Define a speed for your interpolation
+            float moveSpeed = 100000f; // You can adjust this as needed
+            float rotationSpeed = 360; // You can adjust this as needed
+            float positionChangeMagnitude = Vector3.Distance(transform.position, newPos);
+            float rotationChangeMagnitude = Quaternion.Angle(transform.rotation, targetObject.rotation);
 
-            if (!_isLeftHand && _isHandTracking)
+            if (positionChangeMagnitude >= 3f)
             {
-                rotOffset.x -= 180f;
-                rotOffset.z -= 180f;
+                // Lerp the position
+                transform.position = Vector3.Lerp(transform.position, newPos, moveSpeed);
+                // Apply the position offset
+                transform.position += posOffset;
             }
-            transform.Rotate(rotOffset);
+
+            if (rotationChangeMagnitude >= 10)
+            {
+                // Slerp the rotation
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetObject.rotation, rotationSpeed);
+
+                if (!_isLeftHand && _isHandTracking)
+                {
+                    rotOffset.x -= 180f;
+                    rotOffset.z -= 180f;
+                }
+                // Rotate by the offset
+                transform.Rotate(rotOffset);
+            }
         }
     }
 
