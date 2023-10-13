@@ -88,11 +88,12 @@ public class RestoreFeature : MonoBehaviour
             {
                 Vector3 lineVector = _gp.transform.position - _spineCenter.transform.position;
                 lineVector.z = 0;
+                lineVector.y = Mathf.Abs(lineVector.y);
                 float angle = Vector3.Angle(lineVector, Vector3.left);
                 Quaternion rotationQuaternion = Quaternion.Euler(-1f, 0f, -1*angle);
                 Vector3 perpendicularVector = Vector3.Cross(lineVector, Vector3.forward);
                 perpendicularVector.Normalize();
-                perpendicularVector.y = Mathf.Abs(perpendicularVector.y);
+                perpendicularVector.y = perpendicularVector.y >= 0 ? perpendicularVector.y + 1 : Mathf.Abs(perpendicularVector.y - 1); 
                 mesh.transform.SetPositionAndRotation(loc + perpendicularVector * 1.2f, rotationQuaternion);
             }
             else if (mesh.transform.rotation != defaultRotation)
