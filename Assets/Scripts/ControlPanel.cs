@@ -27,8 +27,6 @@ public class ControlPanel : MonoBehaviour
     public int CurLangNum = 0;
 
     [SerializeField] private UnityEvent onMusicPress;
-    [SerializeField] private GameObject musicObject;
-    [SerializeField] private GameObject musicName;
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private Material pause;
     [SerializeField] private Material play;
@@ -55,13 +53,16 @@ public class ControlPanel : MonoBehaviour
         //fill a list with the names of all language files from the pageside text manager
         List<TextAsset> langAssetList = pagesideTextManager.GetComponent<PagesideTextManager>().LanguageFileList;
 
-        List<AudioClip> musicLists = BGMusic.GetComponent<MusicManager>().MusicList;
-        List<string> musicNameLists = BGMusic.GetComponent<MusicManager>().MusicNameList;
-
         for (int i = 0; i < langAssetList.Count; i++)
         {
             langList.Add(langAssetList[i].name);
         }
+
+        langNameText = langNameTextObject.GetComponent<TextMeshPro>();
+        langNameText.text = langList[CurLangNum];
+
+        List<AudioClip> musicLists = BGMusic.GetComponent<MusicManager>().MusicList;
+        List<string> musicNameLists = BGMusic.GetComponent<MusicManager>().MusicNameList;
 
         for (int i = 0; i < musicLists.Count; i++)
         {
@@ -78,9 +79,6 @@ public class ControlPanel : MonoBehaviour
 
         Track = musicList[CurTrackNum];
 
-        langNameText = langNameTextObject.GetComponent<TextMeshPro>();
-        langNameText.text = langList[CurLangNum];
-
         musicHasBeenPaused = false;
         AnnotationHasBeenTurnedOff = false;
         introWallHasBeenTurnedOff = false;
@@ -92,7 +90,7 @@ public class ControlPanel : MonoBehaviour
         CurMusicNum++;
         if (CurMusicNum >= musicNameList.Count)
         {
-            CurMusicNum = 0;
+            CurMusicNum--;
         }
         MusicNameText.text = musicNameList[CurMusicNum];
     }
@@ -100,9 +98,9 @@ public class ControlPanel : MonoBehaviour
     public void CycleMusicNameBackwards()
     {
         CurMusicNum--;
-        if (CurMusicNum <= musicNameList.Count)
+        if (CurMusicNum <= -1)
         {
-            CurMusicNum = musicNameList.Count;
+            CurMusicNum++;
         }
         MusicNameText.text = musicNameList[CurMusicNum];
     }
@@ -110,21 +108,24 @@ public class ControlPanel : MonoBehaviour
     public void CycleTrack()
     {
         CurTrackNum++;
-        if (CurTrackNum > musicList.Count)
+        if (CurTrackNum >= musicList.Count)
         {
-            CurTrackNum = 0;
+            CurTrackNum--;
         }
         Track = musicList[CurTrackNum];
+        BGMusic.GetComponent<MusicManager>().UpdateTrack(CurTrackNum);
     }
 
     public void CycleTrackBackwards()
     {
         CurTrackNum--;
-        if (CurTrackNum <= musicList.Count)
+
+        if (CurTrackNum <= -1)
         {
-            CurTrackNum = musicList.Count;
+            CurTrackNum++;
         }
         Track = musicList[CurTrackNum];
+        BGMusic.GetComponent<MusicManager>().UpdateTrack(CurTrackNum);
     }
 
     public void CycleLanguageName()
@@ -153,13 +154,13 @@ public class ControlPanel : MonoBehaviour
         if (musicHasBeenPaused == false)
         {
             pauseButton.GetComponent<Renderer>().sharedMaterial = pause;
-            musicObject.GetComponent<AudioSource>().Pause();
+            BGMusic.GetComponent<AudioSource>().Pause();
             musicHasBeenPaused = true;
         }
         else
         {
             pauseButton.GetComponent<Renderer>().sharedMaterial = play;
-            musicObject.GetComponent<AudioSource>().Play();
+            BGMusic.GetComponent<AudioSource>().Play();
             musicHasBeenPaused = false;
             Debug.Log("play");
         }
