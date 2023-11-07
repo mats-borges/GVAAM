@@ -194,6 +194,15 @@ public class Interactor : MonoBehaviour, BaseInteractor
 
         isGrabbing = true;
         _grabbedObjects.Add(objtoGrab);
+
+        /*
+        if (!objIsPage(objtoGrab))
+        {
+            // Set the interactor as the parent of the grabbed object
+            objtoGrab.transform.parent = transform;
+        }
+        */
+
         GetComponent<MaterialSwitcher>().TurnOnHighlight(_highlightOnGrab);
 
         return true;
@@ -213,6 +222,13 @@ public class Interactor : MonoBehaviour, BaseInteractor
 
         _grabbedObjects.Remove(objtoGrab);
         isGrabbing = false;
+        /*
+        if (objtoGrab != null && objtoGrab.transform.parent == transform)
+        {
+            // Set the object's parent to null to detach it from the interactor
+            objtoGrab.transform.parent = null;
+        }
+        */
         GetComponent<MaterialSwitcher>().TurnOffHighlight();
 
         return true;

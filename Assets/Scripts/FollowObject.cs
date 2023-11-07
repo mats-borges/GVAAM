@@ -11,7 +11,8 @@ public class FollowObject : MonoBehaviour
     private bool _isHandTracking = false;
     private bool _isLeftHand = false;
     private BaseInteractor currentInteractor = null;
-    
+    private bool grabbing = false;
+
     [Header("Controller Offset")]
     [FormerlySerializedAs("pinchPosOffset")] [SerializeField] private Vector3 controllerPosOffset;
     [FormerlySerializedAs("pinchRotOffset")] [SerializeField] private Vector3 controllerRotOffset;
@@ -34,11 +35,19 @@ public class FollowObject : MonoBehaviour
             var rotOffset = (!_isHandTracking) ? controllerRotOffset : handtrackingRotOffset;
 
             // Define a speed for your interpolation
-            float moveSpeed = 100000f; // You can adjust this as needed
-            float rotationSpeed = 360; // You can adjust this as needed
+            float moveSpeed = .5f; // You can adjust this as needed
+            float rotationSpeed = .5f; // You can adjust this as needed
             float positionChangeMagnitude = Vector3.Distance(transform.position, newPos);
             float rotationChangeMagnitude = Quaternion.Angle(transform.rotation, targetObject.rotation);
 
+
+            Vector3 smoothedPos = Vector3.Lerp(transform.position, newPos, moveSpeed);
+            Quaternion smoothedRot = Quaternion.Slerp(transform.rotation, targetObject.rotation, rotationSpeed);
+
+            transform.position = smoothedPos + posOffset;
+            transform.rotation = smoothedRot; //  * Quaternion.Euler(rotOffset);
+            
+            /*
             if (positionChangeMagnitude >= 3f)
             {
                 // Lerp the position
@@ -47,7 +56,7 @@ public class FollowObject : MonoBehaviour
                 transform.position += posOffset;
             }
 
-            if (rotationChangeMagnitude >= 10)
+            if (rotationChangeMagnitude >= 50f)
             {
                 // Slerp the rotation
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetObject.rotation, rotationSpeed);
@@ -60,6 +69,8 @@ public class FollowObject : MonoBehaviour
                 // Rotate by the offset
                 transform.Rotate(rotOffset);
             }
+            */
+            
         }
     }
 
@@ -68,6 +79,9 @@ public class FollowObject : MonoBehaviour
         if (targetObject != null) return;
 
         targetObject = interactor.GetGameObject().transform;
+        grabbing = true;
+        // Attach the magnifying glass to the hand and adjust position
+        //transform.SetParent(interactor.GetGameObject().transform);
         currentInteractor = interactor;
 
         _isLeftHand = interactor.GetIsLeftHand();
@@ -76,7 +90,10 @@ public class FollowObject : MonoBehaviour
     public void UnregisterTarget()
     {
         if (targetObject == null) return;
-        
+
+        grabbing = false;
+        // Release the magnifying glass to the hand and adjust position
+        //transform.SetParent(null);
         targetObject = null;
         currentInteractor = null;
     }
