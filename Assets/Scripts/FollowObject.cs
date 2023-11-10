@@ -12,6 +12,7 @@ public class FollowObject : MonoBehaviour
     private bool _isLeftHand = false;
     private BaseInteractor currentInteractor = null;
     private bool grabbing = false;
+    private bool wasGrabbing = false;
 
     [Header("Controller Offset")]
     [FormerlySerializedAs("pinchPosOffset")] [SerializeField] private Vector3 controllerPosOffset;
@@ -31,6 +32,7 @@ public class FollowObject : MonoBehaviour
             Vector3 newPos = targetObject.transform.position;
             _isHandTracking = currentInteractor.GetIsHandTracking();
 
+
             var posOffset = (!_isHandTracking) ? controllerPosOffset : handtrackingPosOffset;
             var rotOffset = (!_isHandTracking) ? controllerRotOffset : handtrackingRotOffset;
 
@@ -42,23 +44,30 @@ public class FollowObject : MonoBehaviour
 
 
             Vector3 smoothedPos = Vector3.Lerp(transform.position, newPos, moveSpeed);
-            Quaternion smoothedRot = Quaternion.Slerp(transform.rotation, targetObject.rotation, rotationSpeed);
+            Quaternion smoothedRot = Quaternion.Slerp(transform.rotation, targetObject.rotation * Quaternion.Euler(0, 180f, 0) * Quaternion.Euler(rotOffset), rotationSpeed);
 
             transform.position = smoothedPos + posOffset;
             transform.rotation = smoothedRot; //  * Quaternion.Euler(rotOffset);
+
             
-            /*
+            // transform.Rotate(rotOffset);
+
+            
             if (positionChangeMagnitude >= 3f)
             {
                 // Lerp the position
-                transform.position = Vector3.Lerp(transform.position, newPos, moveSpeed);
+                //transform.position = Vector3.Lerp(transform.position, newPos, moveSpeed);
                 // Apply the position offset
-                transform.position += posOffset;
+                //transform.position += posOffset;
+                transform.position = smoothedPos + posOffset;
             }
+
 
             if (rotationChangeMagnitude >= 50f)
             {
+                transform.rotation = smoothedRot;
                 // Slerp the rotation
+                /*
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetObject.rotation, rotationSpeed);
 
                 if (!_isLeftHand && _isHandTracking)
@@ -68,10 +77,21 @@ public class FollowObject : MonoBehaviour
                 }
                 // Rotate by the offset
                 transform.Rotate(rotOffset);
+                */
             }
-            */
             
+
         }
+    }
+
+    public void attach()
+    {
+        transform.SetParent(targetObject);
+    }
+
+    public void dettach()
+    {
+        transform.SetParent(null);
     }
 
     public void RegisterTarget(BaseInteractor interactor)
@@ -80,11 +100,13 @@ public class FollowObject : MonoBehaviour
 
         targetObject = interactor.GetGameObject().transform;
         grabbing = true;
+        wasGrabbing = false;
         // Attach the magnifying glass to the hand and adjust position
         //transform.SetParent(interactor.GetGameObject().transform);
         currentInteractor = interactor;
 
         _isLeftHand = interactor.GetIsLeftHand();
+        //attach();
     }
     
     public void UnregisterTarget()
@@ -92,9 +114,11 @@ public class FollowObject : MonoBehaviour
         if (targetObject == null) return;
 
         grabbing = false;
+        wasGrabbing = true;
         // Release the magnifying glass to the hand and adjust position
         //transform.SetParent(null);
         targetObject = null;
         currentInteractor = null;
+        //dettach();
     }
 }
