@@ -146,9 +146,10 @@ public class ControlPanel : MonoBehaviour
         else if (Volume == -5)
         {
             MasterMixer.SetFloat("MasterVolume", Volume + 5);
-            Volume = Volume + 5;
             OnVolume5.SetActive(true);
             OffVolume5.SetActive(false);
+            Volume = Volume + 5;
+            
         }
     }
 
@@ -165,36 +166,36 @@ public class ControlPanel : MonoBehaviour
         {
             MasterMixer.SetFloat("MasterVolume", Volume - 5);
             Volume = Volume - 5;
-            OnVolume1.SetActive(true);
-            OffVolume1.SetActive(false);
+            OnVolume1.SetActive(false);
+            OffVolume1.SetActive(true);
         }
         else if (Volume == -15)
         {
             MasterMixer.SetFloat("MasterVolume", Volume - 5);
             Volume = Volume - 5;
-            OnVolume2.SetActive(true);
-            OffVolume2.SetActive(false);
+            OnVolume2.SetActive(false);
+            OffVolume2.SetActive(true);
         }
         else if (Volume == -10)
         {
             MasterMixer.SetFloat("MasterVolume", Volume - 5);
             Volume = Volume - 5;
-            OnVolume3.SetActive(true);
-            OffVolume3.SetActive(false);
+            OnVolume3.SetActive(false);
+            OffVolume3.SetActive(true);
         }
         else if (Volume == -5)
         {
             MasterMixer.SetFloat("MasterVolume", Volume - 5);
             Volume = Volume - 5;
-            OnVolume4.SetActive(true);
-            OffVolume4.SetActive(false);
+            OnVolume4.SetActive(false);
+            OffVolume4.SetActive(true);
         }
         else if (Volume == 0)
         {
             MasterMixer.SetFloat("MasterVolume", Volume - 5);
             Volume = Volume - 5;
-            OnVolume5.SetActive(true);
-            OffVolume5.SetActive(false);
+            OnVolume5.SetActive(false);
+            OffVolume5.SetActive(true);
         }
     }
 
