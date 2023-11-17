@@ -21,7 +21,6 @@ public class MusicManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     //update music in control panel

@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class ControlPanel : MonoBehaviour
 {
@@ -20,6 +21,23 @@ public class ControlPanel : MonoBehaviour
 
     private AudioClip Track;
     public int CurTrackNum = 0;
+
+    [SerializeField] private AudioMixer MasterMixer;
+    private int Volume;
+
+    [SerializeField] private GameObject OnVolume0;
+    [SerializeField] private GameObject OnVolume1;
+    [SerializeField] private GameObject OnVolume2;
+    [SerializeField] private GameObject OnVolume3;
+    [SerializeField] private GameObject OnVolume4;
+    [SerializeField] private GameObject OnVolume5;
+
+    [SerializeField] private GameObject OffVolume0;
+    [SerializeField] private GameObject OffVolume1;
+    [SerializeField] private GameObject OffVolume2;
+    [SerializeField] private GameObject OffVolume3;
+    [SerializeField] private GameObject OffVolume4;
+    [SerializeField] private GameObject OffVolume5;
 
     [SerializeField] private GameObject langNameTextObject;
     [SerializeField] private GameObject pagesideTextManager;
@@ -50,6 +68,8 @@ public class ControlPanel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Volume = 0;
+
         //fill a list with the names of all language files from the pageside text manager
         List<TextAsset> langAssetList = pagesideTextManager.GetComponent<PagesideTextManager>().LanguageFileList;
 
@@ -85,6 +105,99 @@ public class ControlPanel : MonoBehaviour
     }
 
     //Cycle music name
+    public void VolumeUp()
+    {
+        if (Volume == 80)
+        {
+            MasterMixer.SetFloat("MasterVolume", -25);
+            Volume = -25;
+
+            OnVolume0.SetActive(true);
+            OffVolume0.SetActive(false);
+        }
+        else if (Volume == -25)
+        {
+            MasterMixer.SetFloat("MasterVolume", Volume + 5);
+            Volume = Volume + 5;
+            OnVolume1.SetActive(true);
+            OffVolume1.SetActive(false);
+        }
+        else if (Volume == -20)
+        {
+            MasterMixer.SetFloat("MasterVolume", Volume + 5);
+            Volume = Volume + 5;
+            OnVolume2.SetActive(true);
+            OffVolume2.SetActive(false);
+        }
+        else if (Volume == -15)
+        {
+            MasterMixer.SetFloat("MasterVolume", Volume + 5);
+            Volume = Volume + 5;
+            OnVolume3.SetActive(true);
+            OffVolume3.SetActive(false);
+        }
+        else if (Volume == -10)
+        {
+            MasterMixer.SetFloat("MasterVolume", Volume + 5);
+            Volume = Volume + 5;
+            OnVolume4.SetActive(true);
+            OffVolume4.SetActive(false);
+        }
+        else if (Volume == -5)
+        {
+            MasterMixer.SetFloat("MasterVolume", Volume + 5);
+            Volume = Volume + 5;
+            OnVolume5.SetActive(true);
+            OffVolume5.SetActive(false);
+        }
+    }
+
+    public void VolumeDown()
+    {
+        if (Volume <= -25)
+        {
+            MasterMixer.SetFloat("MasterVolume", -80);
+            Volume = 80;
+            OffVolume0.SetActive(true);
+            OnVolume0.SetActive(false);
+        }
+        else if (Volume == -20)
+        {
+            MasterMixer.SetFloat("MasterVolume", Volume - 5);
+            Volume = Volume - 5;
+            OnVolume1.SetActive(true);
+            OffVolume1.SetActive(false);
+        }
+        else if (Volume == -15)
+        {
+            MasterMixer.SetFloat("MasterVolume", Volume - 5);
+            Volume = Volume - 5;
+            OnVolume2.SetActive(true);
+            OffVolume2.SetActive(false);
+        }
+        else if (Volume == -10)
+        {
+            MasterMixer.SetFloat("MasterVolume", Volume - 5);
+            Volume = Volume - 5;
+            OnVolume3.SetActive(true);
+            OffVolume3.SetActive(false);
+        }
+        else if (Volume == -5)
+        {
+            MasterMixer.SetFloat("MasterVolume", Volume - 5);
+            Volume = Volume - 5;
+            OnVolume4.SetActive(true);
+            OffVolume4.SetActive(false);
+        }
+        else if (Volume == 0)
+        {
+            MasterMixer.SetFloat("MasterVolume", Volume - 5);
+            Volume = Volume - 5;
+            OnVolume5.SetActive(true);
+            OffVolume5.SetActive(false);
+        }
+    }
+
     public void CycleMusicName()
     {
         CurMusicNum++;
