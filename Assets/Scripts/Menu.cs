@@ -8,21 +8,30 @@ public class Menu : MonoBehaviour
 {
     public GameObject menu;
     private bool hidden;
+    [SerializeField] private int index;
+    [SerializeField] private GameObject menuPanel;
+    [SerializeField] MenuStatus mss;
+    private MenuStatus ms; 
 
     // Start is called before the first frame update
     void Start()
     {
         hidden = true;
+        ms = menuPanel.GetComponent<MenuStatus>();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void activatePanel()
     {
-
+        //ms.updateMenuDisplay(index);
+        //menu.SetActive(true);
+        //hidden = false;
     }
 
+    
     public void onAndOff()
     {
+        /*
         if (hidden == true)
         {
             StartCoroutine(OnDelay());
@@ -32,6 +41,13 @@ public class Menu : MonoBehaviour
         {
             StartCoroutine(OffDelay());
         }
+        */
+        /*
+        if (hidden == false)
+        {
+            StartCoroutine(OffDelay());
+        }
+        */
     }
 
     IEnumerator OffDelay()
@@ -51,4 +67,6 @@ public class Menu : MonoBehaviour
 
         hidden = false;
     }
+    
+    
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using HandPhysicsToolkit.Helpers.Interfaces;
 using Obi;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 /*
@@ -26,12 +27,23 @@ public class BookManager : MonoBehaviour
     [SerializeField] GameObject versoInspectorPage;
     [SerializeField] GameObject rectoInspectorPage;
     [SerializeField] private GameObject bookSystemObject;
+    [SerializeField] private GameObject bookManager;
+    [SerializeField] private GameObject pageMarker;
     //[SerializeField] private RestoreMode restoreMode;
 
     [SerializeField] public List<Material> pageList = new List<Material>(); // stores the page materials
     //[SerializeField] List<Material> restoredList = new List<Material>(); // stores the restored pages
     private List<Material> currList; // used to refernce pageList or restoredList
 
+
+    enum pageRegion { LEFT, RIGHT };
+
+    private pageRegion thisFrame, lastFrame;
+
+    [SerializeField] public UnityEvent SimPageTurnLeft;
+    [SerializeField] public UnityEvent SimPageTurnRight;
+
+    private GameObject folioMenuText;
 
     public int getLeftPageNum()
     {
@@ -57,7 +69,7 @@ public class BookManager : MonoBehaviour
         simPage.GetComponent<Renderer>().material = currList[simPageNum];
         versoInspectorPage.GetComponent<Renderer>().material = currList[versoInspectorPageNum];
         rectoInspectorPage.GetComponent<Renderer>().material = currList[rectoInspectorPageNum];
-        //folioMenuText = GameObject.Find("Advance Page Name Text");
+        folioMenuText = GameObject.Find("Advance Page Name Text");
     }
 
     public void Increment(GameObject page,ref int pgn)
@@ -85,11 +97,13 @@ public class BookManager : MonoBehaviour
         Increment(rightPage, ref rightPageNum);
         Increment(leftPage, ref leftPageNum);
         Increment(simPage, ref simPageNum);
+        
         if (pairedMode)
         {
             Increment(versoInspectorPage,  ref versoInspectorPageNum);
             Increment(rectoInspectorPage,  ref rectoInspectorPageNum);
         }
+        
 
     }
 
@@ -98,13 +112,55 @@ public class BookManager : MonoBehaviour
         Decrement(rightPage,ref rightPageNum);
         Decrement(leftPage,ref leftPageNum);
         Decrement(simPage,ref simPageNum);
+        
         if (pairedMode)
         {
             Decrement(versoInspectorPage,  ref versoInspectorPageNum);
             Decrement(rectoInspectorPage,  ref rectoInspectorPageNum);
         }
+        
 
     }
+
+    /*
+    // updates the inspector pages if the pages of the book get flipped
+    private void Update()
+    {
+        //two enum variables, one for this frame, other for last frame. The type of mismatch determines when the increment and decrement functions are called
+        if (pageMarker.transform.position.x < bookManager.transform.position.x)
+        {
+            thisFrame = pageRegion.LEFT;
+        }
+        else
+        {
+            thisFrame = pageRegion.RIGHT;
+        }
+
+        if (lastFrame == pageRegion.LEFT && thisFrame == pageRegion.RIGHT)
+        {
+            if (pairedMode)
+            {
+                 Debug.Log("it's getting turned right");
+                 SimPageTurnRight.Invoke();
+            }
+
+        }
+        if (lastFrame == pageRegion.RIGHT && thisFrame == pageRegion.LEFT)
+        {
+            if (pairedMode)
+            {
+                Debug.Log("it's getting turned right");
+                SimPageTurnLeft.Invoke();
+            }
+
+        }
+
+        // update the folio text on the control panel in response to page flip
+        folioMenuText.GetComponent<MenuText>().updateState();
+
+        lastFrame = thisFrame;
+    }
+    */
 
     //increments only the inspector
     public void IncrementInspector()
@@ -148,9 +204,9 @@ public class BookManager : MonoBehaviour
         rightPageNum = 2; 
         versoInspectorPageNum = 0;
         rectoInspectorPageNum = 1;
+        rightPage.GetComponent<Renderer>().material = currList[rightPageNum];
         leftPage.GetComponent<Renderer>().material = currList[leftPageNum];
         simPage.GetComponent<Renderer>().material = currList[simPageNum];
-        rightPage.GetComponent<Renderer>().material = currList[rightPageNum];
         versoInspectorPage.GetComponent<Renderer>().material = currList[versoInspectorPageNum];
         rectoInspectorPage.GetComponent<Renderer>().material = currList[rectoInspectorPageNum];
 

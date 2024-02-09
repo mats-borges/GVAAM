@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0016205689, g: 0.0016205689, b: 0.0016205689, a: 1}
+  m_IndirectSpecularColor: {r: 0.0015776826, g: 0.0015754821, b: 0.0015776826, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1571,15 +1571,8 @@ MonoBehaviour:
 
 '
   - 'Use the left and right thumbsticks on your oculus controllers to reposition
-    yourself.
-
-
-    The left thumbstick will move you forward, back, left, and right.
-
-    The
+    yourself. The left thumbstick will move you forward, back, left, and right. The
     right thumbstick will move you up and down.
-
-
 
 
 
@@ -1590,13 +1583,13 @@ MonoBehaviour:
   - "There are two ways to interact with the experience: With Oculus controllers,
     or with Natural hand tracking.\r\n\r\n<b>1) With Controllers</b>\r\nUsing your
     Oculus controllers, you can pick up the edge of the interactive page by holding
-    the trigger or grip buttons when your hand is close to the edge of a page. \r\n\r\nYou
+    the trigger or grip buttons when your hand is close to the edge of a page. \r\n\n\r\nYou
     can access the menu by pressing the menu button on the left controller.\r\n\r\nPinch
     your fingers or press 'A' to continue. Press 'B' to enter the experience.\r\n"
   - "<b>2) With Natural Hand-Tracking</b> \r\nTo activate hand-tracking, put both
     controllers <u>on a stable surface</u> and hold your hands in front of you. Automatically,
-    your hands will be scanned into the experience. \r\n\r\nYou can interact with
-    the book by pinching the edge of the interactive page using your thumb and index
+    your hands will be scanned into the experience. \r\n\rYou can interact with the
+    book by pinching the edge of the interactive page using your thumb and index
     fingers. You can also select options on the control panel to your right by pinching
     while hovering over a button.\r\n\r\nBy facing your hands toward yourself and
     holding your fingers together, you can access the menu (left) and oculus buttons
@@ -1613,9 +1606,9 @@ MonoBehaviour:
   - "This virtual reality experience has been made possible in part by a Digital
     Humanities Advancement Grant from the National Endowment for the Humanities:
     Democracy demands wisdom.\r\n\r\nAny views, findings, conclusions, or recommendations
-    expressed in this experience do\r\n\r\n not necessarily represent those of the
-    National Endowment for the Humanities.\r\n\r\nPinch your fingers or press 'A'
-    to continue. Press 'B' to enter the experience.\r\n"
+    expressed in this experience do\r not necessarily represent those of the National
+    Endowment for the Humanities.\r\n\r\nPinch your fingers or press 'A' to continue.
+    Press 'B' to enter the experience.\r\n"
   spriteList:
   - {fileID: 21300000, guid: 122aa695153f8474287a6b9ff29d2805, type: 3}
   - {fileID: 21300000, guid: aad5e979c6ef05944b0a55beaae96602, type: 3}
@@ -2136,18 +2129,12 @@ MonoBehaviour:
   m_text: 'This is a 15th-Century Flemish Book of Hours from USC Libraries'' Special
     Collections (MS Z105.5 1450 C378). This manuscript was used by a woman named
     Grietken Baeckx probably in the Church of the Old Saint Elizabeth Beguinage in
-    Ghent, Belgium. Her name is written in the manuscript.
+    Ghent, Belgium. Her name is written in the manuscript. This VR prototype experience
+    allows you to explore and interact with a few pages of this ancient book.
 
 
-
-    This VR prototype
-    experience allows you to explore and interact with a few pages of this ancient
-    book.
-
-
-
-    Pinch your fingers or press ''A'' to continue. Press ''B'' to enter
-    the experience.
+    Pinch
+    your fingers or press ''A'' to continue. Press ''B'' to enter the experience.
 
 '
   m_isRightToLeft: 0

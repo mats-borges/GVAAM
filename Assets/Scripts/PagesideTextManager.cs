@@ -29,7 +29,7 @@ public class PagesideTextManager : MonoBehaviour
 
     private List<string> LanguageTexts;
     private int pageNum; // represents left page num
-    private int totalPages = 3;
+    private int totalPages = 5;
     private int langNum = 0;
     private string[][] splitArray = null;
 
@@ -154,23 +154,23 @@ public class PagesideTextManager : MonoBehaviour
         if (lastFrame == pageRegion.LEFT && thisFrame == pageRegion.RIGHT)
         {
             DecrementPageNum();
-            // increment the page inspector also if it's paired
-            if (bookManager.GetComponent<BookManager>().pairedMode)
-            {
-                Debug.Log("it's getting turned right");
-                SimPageTurnRight.Invoke();
-            }
+            // // increment the page inspector also if it's paired
+            // if (bookManager.GetComponent<BookManager>().pairedMode)
+            // {
+            //     Debug.Log("it's getting turned right");
+            //     SimPageTurnRight.Invoke();
+            // }
 
         }
         if (lastFrame == pageRegion.RIGHT && thisFrame == pageRegion.LEFT)
         {
             IncrementPageNum();
-            // decrement the page inspector also if it's paired
-            if (bookManager.GetComponent<BookManager>().pairedMode)
-            {
-                Debug.Log("it's getting turned left");
-                SimPageTurnLeft.Invoke();
-            }
+            // // decrement the page inspector also if it's paired
+            // if (bookManager.GetComponent<BookManager>().pairedMode)
+            // {
+            //     Debug.Log("it's getting turned left");
+            //     SimPageTurnLeft.Invoke();
+            // }
 
         }
 
@@ -187,7 +187,7 @@ public class PagesideTextManager : MonoBehaviour
         lastFrame = pageRegion.RIGHT;
 
         // reset the language and page numbers
-        langNum = controlPanel.GetComponent<ControlPanel>().CurLangNum;
+        langNum = 0;
         pageNum = bookManager.GetComponent<BookManager>().leftPageNum;
         displayTexts();
     }
