@@ -50,23 +50,5 @@ public class Menu : MonoBehaviour
         */
     }
 
-    IEnumerator OffDelay()
-    {
-        menu.SetActive(false);
-
-        yield return new WaitForSeconds(0.3f);
-
-        hidden = true;
-    }
-
-    IEnumerator OnDelay()
-    {
-        menu.SetActive(true);
-
-        yield return new WaitForSeconds(0.3f);
-
-        hidden = false;
-    }
-    
     
 }
