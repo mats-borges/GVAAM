@@ -9,10 +9,10 @@ public class FollowObject : MonoBehaviour
 {
     private Transform targetObject;
     private bool _isHandTracking = false;
-    private bool _isLeftHand = false;
+    //private bool _isLeftHand = false;
     private BaseInteractor currentInteractor = null;
     private bool grabbing = false;
-    private bool wasGrabbing = false;
+    //private bool wasGrabbing = false;
 
     [Header("Controller Offset")]
     [FormerlySerializedAs("pinchPosOffset")] [SerializeField] private Vector3 controllerPosOffset;
@@ -62,7 +62,6 @@ public class FollowObject : MonoBehaviour
                 transform.position = smoothedPos + posOffset;
             }
 
-
             if (rotationChangeMagnitude >= 50f)
             {
                 transform.rotation = smoothedRot;
@@ -84,14 +83,21 @@ public class FollowObject : MonoBehaviour
         }
     }
 
-    public void attach()
+    private void OnCollisionEnter(Collision collision)
     {
-        transform.SetParent(targetObject);
-    }
+        // Check if the colliders intersect while holding the object
+        if ((collision != null) && grabbing == true)
+        {
+            // Respond to the collision
+            // For instance, you can adjust the position of one of the colliders to prevent intersection
+            // Example: Move the object slightly away from the collision point
+            // Get the collision normal vector
+            // Vector3 collisionNormal = collision.contacts[0].normal;
 
-    public void dettach()
-    {
-        transform.SetParent(null);
+            //collisionNormal.Normalize(); // normalize between 0 and 1
+
+            transform.position += collision.contacts[0].normal * 20f;
+        }
     }
 
     public void RegisterTarget(BaseInteractor interactor)
@@ -100,12 +106,12 @@ public class FollowObject : MonoBehaviour
 
         targetObject = interactor.GetGameObject().transform;
         grabbing = true;
-        wasGrabbing = false;
+        //wasGrabbing = false;
         // Attach the magnifying glass to the hand and adjust position
         //transform.SetParent(interactor.GetGameObject().transform);
         currentInteractor = interactor;
 
-        _isLeftHand = interactor.GetIsLeftHand();
+        //_isLeftHand = interactor.GetIsLeftHand();
         //attach();
     }
     
@@ -114,7 +120,7 @@ public class FollowObject : MonoBehaviour
         if (targetObject == null) return;
 
         grabbing = false;
-        wasGrabbing = true;
+        //wasGrabbing = true;
         // Release the magnifying glass to the hand and adjust position
         //transform.SetParent(null);
         targetObject = null;
