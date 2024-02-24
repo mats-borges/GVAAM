@@ -1,36 +1,36 @@
-Kalends    December XXXI
-Luna                             XXX
-xiij   f
-  ii    g
-        a
-x      b Saint Barbara, virgin
-        c
-xviij d Nicholas the bishop
-  vii  e
-        f Conception of Mary
-xv    g
-  iiij  A
-        b
-xii    c
-  i     d Lucy, virgin
-        e Nicasius
-ix     f 
-        g 
-xvij  a Lazarus, martyr
-   vi  b
-        c
-xiiij  d
-  iij   e Thomas
-        f
-xi     g
-        a Vigil
-xix   b Christ’s birth
-        c Stephen, martyr
-viij   d John the Evangelist
-        e Innocent Saints 
-xv    f
-  v    g
-xiij   a Saint Sylvester  
+<align=left>Kalends    December XXXI
+<align=left>Luna                             XXX
+<align=left>xiij   f
+<align=left>  ii    g
+<align=left>        a
+<align=left>x      b Saint Barbara, virgin
+<align=left>        c
+<align=left>xviij d Nicholas the bishop
+<align=left>  vii  e
+<align=left>        f Conception of Mary
+<align=left>xv    g
+<align=left>  iiij  A
+<align=left>        b
+<align=left>xii    c
+<align=left>  i     d Lucy, virgin
+<align=left>        e Nicasius
+<align=left>ix     f 
+<align=left>        g 
+<align=left>xvij  a Lazarus, martyr
+<align=left>   vi  b
+<align=left>        c
+<align=left>xiiij  d
+<align=left>  iij   e Thomas
+<align=left>        f
+<align=left>xi     g
+<align=left>        a Vigil
+<align=left>xix   b Christ’s birth
+<align=left>        c Stephen, martyr
+<align=left>viij   d John the Evangelist
+<align=left>        e Innocent Saints 
+<align=left>xv    f
+<align=left>  v    g
+<align=left>xiij   a Saint Sylvester  
  /next/
  /next/
  /next/

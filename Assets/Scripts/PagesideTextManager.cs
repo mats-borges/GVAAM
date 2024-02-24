@@ -25,7 +25,7 @@ public class PagesideTextManager : MonoBehaviour
     [SerializeField] private GameObject controlPanel;
     [SerializeField] private GameObject leftQuad;
     [SerializeField] private GameObject rightQuad;
-    private GameObject folioMenuText;
+    [SerializeField] private GameObject folioMenuText;
 
     private List<string> LanguageTexts;
     private int pageNum; // represents left page num
@@ -69,8 +69,6 @@ public class PagesideTextManager : MonoBehaviour
 
         thisFrame = pageRegion.RIGHT;
         lastFrame = pageRegion.RIGHT;
-
-        folioMenuText = GameObject.Find("Advance Page Name Text");
     }
 
     // change the language displayed 

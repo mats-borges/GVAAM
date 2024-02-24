@@ -1,36 +1,36 @@
-Kalends    Diciembre XXXI
-Luna                             XXX
-xiij   f
-  ii    g
-        a
-x      b Santa Barbara, virgen 
-        c
-xviij d Nicolás obispo
-  vii  e
-        f Concepción de María
-xv    g
-  iiij  A
-        b
-xii    c
-  i     d Lucía, virgen
-        e Nicasio
-ix     f 
-        g 
-xvij  a Lázaro, mártir 
-   vi  b
-        c
-xiiij  d
-  iij   e Tomás
-        f
-xi     g
-        a vigilia
-xix   b natividad de Cristo
-        c Esteban, mártir
-viij   d Juan Evangelista
-        e Santos Inocentes
-xv    f
-  v    g
-xiij   a san Silvestro  
+<align=left>Kalends    Diciembre XXXI
+<align=left>Luna                             XXX
+<align=left>xiij   f
+<align=left>  ii    g
+<align=left>        a
+<align=left>x      b Santa Barbara, virgen 
+<align=left>        c
+<align=left>xviij d Nicolás obispo
+<align=left>  vii  e
+<align=left>        f Concepción de María
+<align=left>xv    g
+<align=left>  iiij  A
+<align=left>        b
+<align=left>xii    c
+<align=left>  i     d Lucía, virgen
+<align=left>        e Nicasio
+<align=left>ix     f 
+<align=left>        g 
+<align=left>xvij  a Lázaro, mártir 
+<align=left>   vi  b
+<align=left>        c
+<align=left>xiiij  d
+<align=left>  iij   e Tomás
+<align=left>        f
+<align=left>xi     g
+<align=left>        a vigilia
+<align=left>xix   b natividad de Cristo
+<align=left>        c Esteban, mártir
+<align=left>viij   d Juan Evangelista
+<align=left>        e Santos Inocentes
+<align=left>xv    f
+<align=left>  v    g
+<align=left>xiij   a san Silvestro  
  /next/
  /next/
  /next/

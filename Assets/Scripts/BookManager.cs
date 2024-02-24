@@ -107,6 +107,25 @@ public class BookManager : MonoBehaviour
 
     }
 
+    public void flipToBadgePage()
+    {
+        // right-side resting
+        currList = pageList;
+        leftPageNum = 2;
+        simPageNum = 3;
+        rightPageNum = 4;
+        versoInspectorPageNum = 2;
+        rectoInspectorPageNum = 3;
+        rightPage.GetComponent<Renderer>().material = currList[rightPageNum];
+        leftPage.GetComponent<Renderer>().material = currList[leftPageNum];
+        simPage.GetComponent<Renderer>().material = currList[simPageNum];
+        versoInspectorPage.GetComponent<Renderer>().material = currList[versoInspectorPageNum];
+        rectoInspectorPage.GetComponent<Renderer>().material = currList[rectoInspectorPageNum];
+
+        ResetPageParticles(null);
+        bookSystemObject.GetComponent<ParticlePositionManager>().LoadParticles("RightSideResting");
+    }
+
     public void decrementAll()
     {
         Decrement(rightPage,ref rightPageNum);
