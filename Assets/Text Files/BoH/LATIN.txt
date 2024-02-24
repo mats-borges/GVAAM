@@ -1,36 +1,36 @@
-<size=300%><color=#D1B000>KL</color><size=100%>             December XXXI
-                  Luna         XXX
-xiij   f
-  ii    g
-        <color=red>a</color>
-x      b          <color=red>S’ Barbera V’</color> 
-        c
-xviij d         <color=red>Nicolay Epī</color> 
-  vii  e
-        f           <color=red>Conceptio Marie</color>
-xv    g
-  iiij  <color=red>A</color>
-        b
-xii    c
-  i     d          Lucie V’gīs
-        e          <color=red>Nichasius</color>
-ix     f 
-        g 
-xvij  <color=red>a</color>          Lazarii mar
-   vi  b
-        c
-xiiij  d
-  iij   e          <color=red>Thoma</color>
-        f
-xi     g
-        <color=red>a</color>          Vig’
-xix   b          <color=red>Nativitas Dnī</color>
-        c           <color=red>Stephani mar</color>
-viij   d          <color=red>Johannes evanga</color>
-        e           <color=red>Scōrum Innocentium</color> 
-xv    f
-  v    g
-xiij   <color=red>a</color>           S’ Silvester  
+<align=left><size=300%><color=#D1B000>KL</color><size=100%>             December XXXI
+<align=left>                  Luna         XXX
+<align=left>xiij   f
+<align=left>  ii    g
+<align=left>        <color=red>a</color>
+<align=left>x      b          <color=red>S’ Barbera V’</color> 
+<align=left>        c
+<align=left>xviij d         <color=red>Nicolay Epī</color> 
+<align=left>  vii  e
+<align=left>        f           <color=red>Conceptio Marie</color>
+<align=left>xv    g
+<align=left>  iiij  <color=red>A</color>
+<align=left>        b
+<align=left>xii    c
+<align=left>  i     d          Lucie V’gīs
+<align=left>        e          <color=red>Nichasius</color>
+<align=left>ix     f 
+<align=left>        g 
+<align=left>xvij  <color=red>a</color>          Lazarii mar
+<align=left>   vi  b
+<align=left>        c
+<align=left>xiiij  d
+<align=left>  iij   e          <color=red>Thoma</color>
+<align=left>        f
+<align=left>xi     g
+<align=left>        <color=red>a</color>          Vig’
+<align=left>xix   b          <color=red>Nativitas Dnī</color>
+<align=left>        c           <color=red>Stephani mar</color>
+<align=left>viij   d          <color=red>Johannes evanga</color>
+<align=left>        e           <color=red>Scōrum Innocentium</color> 
+<align=left>xv    f
+<align=left>  v    g
+<align=left>xiij   <color=red>a</color>           S’ Silvester  
  /next/
  /next/
  /next/
